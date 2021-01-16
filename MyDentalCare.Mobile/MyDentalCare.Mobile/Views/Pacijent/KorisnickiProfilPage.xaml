@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MyDentalCare.Mobile.Views.Pacijent.KorisnickiProfilPage"
+             Title="Moj profil">
+
+    <ContentPage.BindingContext>
+        <vm:KorisnickiProfilViewModel></vm:KorisnickiProfilViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout Padding="20">
+                    <StackLayout>
+                        <Label  Text="Ime"  FontAttributes="Bold"></Label>
+                        <Entry x:Name="Ime" Text="{Binding Pacijent.Ime}"></Entry>
+
+                        <Label  Text="Prezime" FontAttributes="Bold"></Label>
+                        <Entry x:Name="Prezime" Text="{Binding Pacijent.Prezime}"></Entry>
+
+                        <Label  Text="Telefon" FontAttributes="Bold"></Label>
+                        <Entry x:Name="BrojTelefona" Text="{Binding Pacijent.BrojTelefona}"></Entry>
+
+                        <Label  Text="Email" FontAttributes="Bold"></Label>
+                        <Entry x:Name="Email" Text="{Binding Pacijent.Email}"></Entry>
+
+                        <Label  Text="Korisnicko ime" FontAttributes="Bold"></Label>
+                        <Entry x:Name="KorisnickoIme" Text="{Binding Pacijent.KorisnickoIme}"></Entry>
+
+                        <Label  Text="Datum registracije" FontAttributes="Bold"></Label>
+                        <Entry x:Name="DatumRegistracije" Text="{Binding Pacijent.DatumRegistracije}"></Entry>
+
+                        <Label  Text="Password"></Label>
+                        <Entry x:Name="Password"  Placeholder="Unesi novu ili staru lozinka" IsPassword="True"></Entry>
+                        
+                        <Label  Text="Potvrda passworda"></Label>
+                        <Entry x:Name="PasswordConfirmation" Placeholder="Potvrda lozinke" IsPassword="True"></Entry>
+                    
+                    </StackLayout>
+                    <StackLayout>
+                        <Button Text="Izmijeni podatke" Clicked="Button_Clicked" BackgroundColor="LightGray"></Button>
+                    </StackLayout>
+                </StackLayout>
+                
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewModel="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             x:Class="MyDentalCare.Mobile.Views.UrediStomatoloskuOrdinaciju"
+             Title="Uredi podatke o stomatološkoj ordinaciji">
+
+    <ContentPage.BindingContext>
+        <viewModel:UrediStomatoloskuOrdinacijuViewModel></viewModel:UrediStomatoloskuOrdinacijuViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            
+            <StackLayout>
+                <Label Text="Naziv"></Label>
+                <Entry x:Name="Naziv" Text="{Binding StomatoloskaOrdinacija.Naziv}"></Entry>
+            </StackLayout>
+            
+            <StackLayout>
+                <Label Text="Email"></Label>
+                <Entry x:Name="Email" Text="{Binding StomatoloskaOrdinacija.Email}"></Entry>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="BrojTelefona"></Label>
+                <Entry x:Name="BrojTelefona" Text="{Binding StomatoloskaOrdinacija.BrojTelefona}"></Entry>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Radno vrijeme od"></Label>
+                <DatePicker x:Name="RadnoVrijemeOd" Date="{Binding StomatoloskaOrdinacija.RadnoVrijemeOd}"></DatePicker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Radno vrijeme do"></Label>
+                <DatePicker x:Name="RadnoVrijemeDo" Date="{Binding StomatoloskaOrdinacija.RadnoVrijemeDo}"></DatePicker>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Adresa"></Label>
+                <Picker ItemsSource="{Binding AdresaList}" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding SelectedAdresa}" x:Name="AdresaPicker">
+                </Picker>
+            </StackLayout>
+
+            <Button Clicked="Button_Clicked" Text="Sačuvaj" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray"></Button>
+            <Label IsVisible="{Binding IsBusy}" Text="..."/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

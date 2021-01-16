@@ -1,0 +1,16 @@
+C:\Users\User\source\repos\MyDentalCare\MyDentalCare.Model\bin\Debug\netstandard2.0\MyDentalCare.Model.deps.json
+C:\Users\User\source\repos\MyDentalCare\MyDentalCare.Model\bin\Debug\netstandard2.0\MyDentalCare.Model.dll
+C:\Users\User\source\repos\MyDentalCare\MyDentalCare.Model\bin\Debug\netstandard2.0\MyDentalCare.Model.pdb
+C:\Users\User\source\repos\MyDentalCare\MyDentalCare.Model\obj\Debug\netstandard2.0\MyDentalCare.Model.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\MyDentalCare\MyDentalCare.Model\obj\Debug\netstandard2.0\MyDentalCare.Model.AssemblyInfo.cs
+C:\Users\User\source\repos\MyDentalCare\MyDentalCare.Model\obj\Debug\netstandard2.0\MyDentalCare.Model.dll
+C:\Users\User\source\repos\MyDentalCare\MyDentalCare.Model\obj\Debug\netstandard2.0\MyDentalCare.Model.pdb
+C:\Users\User\source\repos\MyDentalCare\MyDentalCare.Model\obj\Debug\netstandard2.0\MyDentalCare.Model.csprojAssemblyReference.cache
+C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Model\bin\Debug\netstandard2.0\MyDentalCare.Model.deps.json
+C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Model\bin\Debug\netstandard2.0\MyDentalCare.Model.dll
+C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Model\bin\Debug\netstandard2.0\MyDentalCare.Model.pdb
+C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Model\obj\Debug\netstandard2.0\MyDentalCare.Model.csprojAssemblyReference.cache
+C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Model\obj\Debug\netstandard2.0\MyDentalCare.Model.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Model\obj\Debug\netstandard2.0\MyDentalCare.Model.AssemblyInfo.cs
+C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Model\obj\Debug\netstandard2.0\MyDentalCare.Model.dll
+C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Model\obj\Debug\netstandard2.0\MyDentalCare.Model.pdb

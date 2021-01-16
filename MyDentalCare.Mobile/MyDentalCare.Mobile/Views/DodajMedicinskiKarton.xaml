@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewModel="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             x:Class="MyDentalCare.Mobile.Views.DodajMedicinskiKarton"
+             Title="Otvori novi medicinski  karton">
+   
+    <ContentPage.BindingContext>
+        <viewModel:MedicinskiKartonViewModel></viewModel:MedicinskiKartonViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">
+
+                    <Label Text="Pacijent"></Label>
+                    <Picker ItemsSource="{Binding PacijentList}" ItemDisplayBinding="{Binding Ime}" SelectedItem="{Binding SelectedPacijent}" x:Name="PacijentPicker">
+                    </Picker>
+
+                    <Label Text="Opis"/>
+                    <Entry x:Name="Opis" Text="{Binding Opis}"/>
+
+                    <Button Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Text="Sačuvaj" BackgroundColor="LightGray"></Button>
+                    <Label IsVisible="{Binding IsBusy}" Text="..."/>
+
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

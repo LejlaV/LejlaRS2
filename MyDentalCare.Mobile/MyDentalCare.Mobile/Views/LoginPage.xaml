@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MyDentalCare.Mobile.Views.LoginPage">
+    
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel></vm:LoginViewModel>
+    </ContentPage.BindingContext>
+    
+<ContentPage.Content>
+  
+    <!--<Grid VerticalOptions="FillAndExpand">
+            
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                <Frame BackgroundColor="LightBlue" HeightRequest="280" Padding="0" Margin="0">
+                </Frame>
+            </StackLayout>
+
+            <StackLayout>
+            <Label Text="Welcome to My Dental Care!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                   />
+            
+            <Label  Text="Korisničko ime"></Label>
+            <Entry x:Name="KorisnickoIme" Text="{Binding KorisnickoIme}"></Entry>
+
+            <Label  Text="Lozinka"></Label>
+            <Entry Text="{Binding Lozinka}" IsPassword="True"></Entry>
+            
+            <Button Command="{Binding LoginCommand}"  HorizontalOptions="FillAndExpand" Text="PRIJAVA"></Button>
+            <Label IsVisible="{Binding IsBusy}" Text="..."></Label>
+
+            <Button Clicked="Button_Clicked"  Text="Registriraj se"
+                    TextColor="White" BackgroundColor="LightGray"></Button>
+        </StackLayout>
+        </Grid>-->
+        
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0" Grid.Row="0">
+                <Label Text="Welcome to My Dental Care!"/>
+                <Image x:Name="logoimg" Source="a36ef67f-8482-4575-9cbf-e8cf623d7beb_200x200.png" Opacity="0.6" VerticalOptions="Start" Margin="0,3,0,0"/>
+            </StackLayout>-->
+            <Grid RowSpacing="20" Grid.Row="1" Margin="20,0,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Entry x:Name="KorisnickoIme" Text="{Binding KorisnickoIme}" Grid.Row="1" Placeholder="Korisničko ime" HeightRequest="35" PlaceholderColor="#bababa" FontSize="16"/>
+
+                <Entry x:Name="Lozinka" Text="{Binding Lozinka}" IsPassword="True" Grid.Row="2" Placeholder="Lozinka" HeightRequest="35" PlaceholderColor="#bababa" FontSize="16"/>
+
+                <Button Command="{Binding LoginCommand}" Text="Prijavi se" BackgroundColor="#3897f0" TextColor="White" HeightRequest="35" VerticalOptions="Start" Grid.Row="3"></Button>
+                <Label IsVisible="{Binding IsBusy}" Text="..."></Label>
+
+                <!--<Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Label BackgroundColor="#bababa" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                    <Image Source="facebookicon.png" Grid.Column="1" VerticalOptions="Center" Margin="10,0,10,0"/>
+                    <Label BackgroundColor="#bababa" Grid.Column="2" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                </Grid>-->
+                <StackLayout Grid.Row="4" BackgroundColor="#ffffff">
+                    <Label HeightRequest="1" BackgroundColor="#e3e3e3"/>
+                    <Label Text="Nemaš račun? Registriraj se!" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Button Clicked="Button_Clicked"  Text="Registriraj se"  BackgroundColor="#3897f0" TextColor="White" HeightRequest="35" VerticalOptions="Start" Grid.Row="3"></Button>
+                </StackLayout>
+            </Grid>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

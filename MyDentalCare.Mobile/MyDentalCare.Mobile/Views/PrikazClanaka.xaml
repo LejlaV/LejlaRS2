@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             xmlns:converters="clr-namespace:MyDentalCare.Mobile.Converter"
+             mc:Ignorable="d"
+             x:Class="MyDentalCare.Mobile.Views.PrikazClanaka"
+             Title="Doc.Blog">
+
+    <ContentPage.BindingContext>
+        <viewModel:ClanakViewModel></viewModel:ClanakViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Picker ItemsSource="{Binding KategorijeList}" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding SelectedKategorija}" x:Name="picker">
+            </Picker>
+            <ListView ItemsSource="{Binding ClanciList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="White" BorderColor="#F0F0F0" Padding="5" Margin="0,0,0,5" HasShadow="false">
+                                <StackLayout Padding="10" Orientation="Vertical" Margin="0, 10" HorizontalOptions="Center" VerticalOptions="Center">
+                                   
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="Kategorija: " FontSize="12" 
+                                        FontAttributes="Bold" ></Label>
+                                        <Label Grid.Column="0" Text="{Binding Kategorija.Naziv}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="12" 
+                                FontAttributes="Bold" 
+                                 VerticalOptions="Center"/>
+                                    </StackLayout>
+                                    
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Grid.Column="0" Text="{Binding Naslov}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="12" 
+                                FontAttributes="Bold" 
+                                 VerticalOptions="Center"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Grid.Column="0" Text="{Binding Sadrzaj}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="12" 
+                                FontAttributes="Bold" 
+                                 VerticalOptions="Center"/>
+                                    </StackLayout>
+                                    
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="Datum objave: " FontSize="12" 
+                                        FontAttributes="Bold" ></Label>
+                                        <Label Grid.Column="0" Text="{Binding DatumObjave}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="12" 
+                                FontAttributes="Bold" 
+                                 VerticalOptions="Center"/>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Image Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                    </StackLayout>
+                                    <Button Clicked="Button_Clicked" Text="Uredi" CornerRadius="7" HeightRequest="30" WidthRequest="60" Padding="3"
+                                       BackgroundColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center"></Button>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

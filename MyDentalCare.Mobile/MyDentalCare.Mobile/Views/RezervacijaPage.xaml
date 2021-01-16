@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewModel="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             x:Class="MyDentalCare.Mobile.Views.RezervacijaPage"
+             Title="Rezervacije">
+
+    <ContentPage.BindingContext>
+        <viewModel:RezervacijeViewModel></viewModel:RezervacijeViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Picker ItemsSource="{Binding PacijentList}" ItemDisplayBinding="{Binding Ime}" SelectedItem="{Binding SelectedPacijent}" x:Name="picker">
+            </Picker>
+
+            <ListView ItemsSource="{Binding RezervacijaList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="White" BorderColor="#F0F0F0" Padding="5" Margin="0,0,0,5" HasShadow="false">
+                                
+                                <StackLayout Padding="10" Orientation="Vertical" Margin="0, 10" HorizontalOptions="Center" VerticalOptions="Center">
+                                   
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                                        <Label Text="Datum rezervacije"  FontSize="12" 
+                                FontAttributes="Bold" />
+                                        <Label Grid.Column="0" Text="{Binding DatumVrijeme, StringFormat='{0:MMMM dd, yyyy}'}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="12" 
+                                 VerticalOptions="Center"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="Razlog rezervacije" FontSize="12" 
+                                FontAttributes="Bold"/>
+                                        <Label Grid.Column="0" Text="{Binding Razlog}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="12" 
+                                 VerticalOptions="Center"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="Usluga: " FontSize="12" 
+                                        FontAttributes="Bold" ></Label>
+                                        <Label Grid.Column="0" Text="{Binding Usluga.Naziv}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="12" 
+                                 VerticalOptions="Center"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="Pacijent: " FontSize="12" 
+                                        FontAttributes="Bold" ></Label>
+                                        <Label Grid.Column="0" Text="{Binding Pacijent.Ime}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="12" 
+                                 VerticalOptions="Center"/>
+                                        <Label Grid.Column="0" Text="{Binding Pacijent.Prezime}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="12" 
+                                 VerticalOptions="Center"/>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

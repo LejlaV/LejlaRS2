@@ -1,0 +1,35 @@
+version: '3'
+services:
+#mssql docker
+  mydentalcare-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=QWElkj132!
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    networks:
+      - mydentalcarenet
+
+  mydentalcare-api:
+    restart: unless-stopped
+    build:
+      context: .
+    volumes:
+    - './Img:/Img'
+    environment:
+      - ConnectionStrings:MyDentalCare=Server=mydentalcare-sql,1433;Database=mydentalcareDocker;User=sa;Password=QWElkj132!;ConnectRetryCount=0
+    ports:
+      - 44369:80
+    networks:
+      - mydentalcarenet      
+    links:
+      - mydentalcare-sql
+    depends_on:
+      - mydentalcare-sql
+      
+networks:
+  mydentalcarenet:
+    driver: bridge

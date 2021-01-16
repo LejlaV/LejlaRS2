@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+              xmlns:viewModel="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             x:Class="MyDentalCare.Mobile.Views.UrediPregled"
+             Title="Uredi podatke o pregledu">
+
+    <ContentPage.BindingContext>
+        <viewModel:UrediPregledViewModel></viewModel:UrediPregledViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">
+
+                    <Label Text="Naziv"/>
+                    <Entry x:Name="Naziv" Text="{Binding Pregled.Naziv}"/>
+
+                    <Label Text="Opis"/>
+                    <Entry x:Name="Opis" Text="{Binding Pregled.Opis}"/>
+
+                    <Label Text="Datum obavljanja pregleda"></Label>
+                    <DatePicker x:Name="DatumVrijeme" IsEnabled="True"></DatePicker>
+
+                    <Label Text="Pregled obavio"></Label>
+                    <Picker ItemsSource="{Binding KorisnikList}" ItemDisplayBinding="{Binding Ime}" SelectedItem="{Binding SelectedKorisnik}" x:Name="KorisnikPicker">
+                    </Picker>
+
+                    <Label Text="Odaberi rezervaciju"></Label>
+                    <Picker ItemsSource="{Binding RezervacijaList}" ItemDisplayBinding="{Binding Razlog}" SelectedItem="{Binding SelectedRezervacija}" x:Name="RezervacijaPicker">
+                    </Picker>
+
+                    <Label Text="Određena dijagnoza"></Label>
+                    <Picker ItemsSource="{Binding DijagnozaList}" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding SelectedDijagnoza}" x:Name="DijagnozaPicker">
+                    </Picker>
+
+                    <Label Text="Propisani lijek"></Label>
+                    <Picker ItemsSource="{Binding LijekList}" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding SelectedLijek}" x:Name="LijekPicker">
+                    </Picker>
+
+                    <Label Text="Dodaj na medicinski karton pacijenta"></Label>
+                    <Picker ItemsSource="{Binding MedicinskiKartonList}" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding SelectedMedicinskiKarton}" x:Name="MedicinskiKartonPicker">
+                    </Picker>
+
+                    <Button Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Text="Sačuvaj" BackgroundColor="LightGray"></Button>
+                    <Label IsVisible="{Binding IsBusy}" Text="..."/>
+
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

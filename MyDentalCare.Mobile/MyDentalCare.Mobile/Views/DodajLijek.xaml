@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewModel="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             x:Class="MyDentalCare.Mobile.Views.DodajLijek"
+             Title="Dodaj novi lijek">
+               
+    <ContentPage.BindingContext>
+        <viewModel:LijekoviViewModel></viewModel:LijekoviViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">
+                    <Label Text="Naziv"/>
+                    <Entry x:Name="Naziv" Text="{Binding Naziv}"/>
+
+                    <Label Text="Uputstvo"/>
+                    <Entry x:Name="Uputstvo" Text="{Binding Uputstvo}"/>
+
+                    <Button Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Text="Sačuvaj" BackgroundColor="LightGray"></Button>
+                    <Label IsVisible="{Binding IsBusy}" Text="..."/>
+
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

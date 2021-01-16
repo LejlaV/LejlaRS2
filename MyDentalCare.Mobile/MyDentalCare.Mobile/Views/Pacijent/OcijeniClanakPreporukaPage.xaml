@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MyDentalCare.Mobile.Views.Pacijent.OcijeniClanakPreporukaPage"
+             Title="Ocijeni sadržaj">
+
+    <ContentPage.BindingContext>
+        <viewModel:OcijeniClanakViewModel>
+        </viewModel:OcijeniClanakViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="Ocjena"></Label>
+            <Entry  x:Name="Ocjena" Text="{Binding Ocjena1}" ></Entry>
+            <Button Clicked="Button_Clicked" Text="Sačuvaj" CornerRadius="7" HeightRequest="30" WidthRequest="80" Padding="3" 
+                        BackgroundColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center"  ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

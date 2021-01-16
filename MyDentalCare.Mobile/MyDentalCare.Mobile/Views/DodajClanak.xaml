@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             xmlns:converters="clr-namespace:MyDentalCare.Mobile.Converter"
+             mc:Ignorable="d"
+             x:Class="MyDentalCare.Mobile.Views.DodajClanak"
+             Title="Dodaj novi članak">
+
+    <ContentPage.BindingContext>
+        <viewModel:ClanakViewModel></viewModel:ClanakViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand">
+                    
+                    <Label Text="Naslov"/>
+                    <Entry x:Name="Naslov" Text="{Binding Naslov}"/>
+
+                    <Label Text="Sadržaj"/>
+                    <Entry x:Name="Sadrzaj" Text="{Binding Sadrzaj}"/>
+
+                    <Label Text="Kategorija članka"></Label>
+                    <Picker ItemsSource="{Binding KategorijeList}" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding SelectedKategorija}" x:Name="KategorijaPicker">
+                    </Picker>
+
+                    <Image WidthRequest="300" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                    <Button Clicked="Button_Clicked_1" Text="Odaberi sliku"></Button>
+                    
+                    <Button Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Text="Sačuvaj" BackgroundColor="LightGray"></Button>
+                    <Label IsVisible="{Binding IsBusy}" Text="..."/>
+
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

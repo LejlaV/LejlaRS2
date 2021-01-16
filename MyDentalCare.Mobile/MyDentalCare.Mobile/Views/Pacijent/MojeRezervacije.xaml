@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MyDentalCare.Mobile.Views.Pacijent.MojeRezervacije"
+             Title="Moje rezervacije">
+
+    <ContentPage.BindingContext>
+        <vm:MojeRezervacijeViewModel></vm:MojeRezervacijeViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="10" Orientation="Vertical" Margin="0, 10" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label>Aktivne rezervacije</Label>
+            </StackLayout>
+            <ListView ItemsSource="{Binding RezervacijaList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="White" BorderColor="#F0F0F0" Padding="5" Margin="0,0,0,5" HasShadow="false">
+                                <StackLayout Padding="10" Orientation="Vertical" Margin="0, 10" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="Datum rezervacije" />
+                                        <Label Grid.Column="0" Text="{Binding DatumVrijeme, StringFormat='{0:MMMM dd, yyyy}'} " 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="12" 
+                                FontAttributes="Bold" 
+                                 VerticalOptions="Center"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <Label Text="Razlog rezervacije" />
+                                        <Label Grid.Column="0" Text="{Binding Razlog}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="12" 
+                                FontAttributes="Bold" 
+                                 VerticalOptions="Center"/>
+                                    </StackLayout>
+                                    <Button Clicked="Button_Clicked" Text="Otkaži rezervaciju" CornerRadius="7" HeightRequest="30" WidthRequest="200" Padding="3"
+                                       BackgroundColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center"></Button>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Clicked="Button_Clicked_1" Text="Zakaži novu rezervaciju" CornerRadius="7" HeightRequest="30" WidthRequest="200" Padding="3"
+                                       BackgroundColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

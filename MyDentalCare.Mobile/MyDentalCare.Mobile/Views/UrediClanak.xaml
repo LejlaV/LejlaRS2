@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewModel="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             xmlns:converters="clr-namespace:MyDentalCare.Mobile.Converter"
+             x:Class="MyDentalCare.Mobile.Views.UrediClanak"
+             Title="Uredi podatke o članku">
+
+    <ContentPage.BindingContext>
+        <viewModel:UrediClanakViewModel></viewModel:UrediClanakViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <StackLayout>
+                <Label Text="Naslov"></Label>
+                <Entry x:Name="Naslov" Text="{Binding Clanak.Naslov}"></Entry>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Sadrzaj"></Label>
+                <Entry x:Name="Sadrzaj" Text="{Binding Clanak.Sadrzaj}"></Entry>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Kategorija članka"></Label>
+                <Picker ItemsSource="{Binding KategorijeList}" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding SelectedKategorija}" x:Name="KategorijaPicker">
+                </Picker>
+            </StackLayout>
+            <StackLayout>
+                <Image WidthRequest="300" Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                <Button Clicked="Button_Clicked" Text="Odaberi sliku"></Button>
+            </StackLayout>
+            <StackLayout>
+                <Button Clicked="Button_Clicked_1" Text="Sačuvaj" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray"></Button>
+                <Label IsVisible="{Binding IsBusy}" Text="..."/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

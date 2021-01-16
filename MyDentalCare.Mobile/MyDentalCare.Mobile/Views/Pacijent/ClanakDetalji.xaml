@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:MyDentalCare.Mobile.ViewModels"
+             xmlns:converters="clr-namespace:MyDentalCare.Mobile.Converter"
+             mc:Ignorable="d"
+             x:Class="MyDentalCare.Mobile.Views.Pacijent.ClanakDetalji"
+             Title="Doc.Blog">
+
+    <ContentPage.BindingContext>
+        <vm:ClanakDetaljiViewModel></vm:ClanakDetaljiViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+            <ScrollView>
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                <StackLayout Orientation="Horizontal" Padding="20" >
+                    <Label Text="{Binding Clanak.Naslov}" FontSize="Medium" FontAttributes="Bold"></Label>
+                </StackLayout>
+
+                <StackLayout>
+                    <Image Source="{Binding Clanak.Slika, Converter={StaticResource imgConv}}"></Image>
+                </StackLayout>
+                <StackLayout  HorizontalOptions="FillAndExpand" Padding="30" VerticalOptions="CenterAndExpand" >
+
+                    <StackLayout Orientation="Horizontal" Padding="20" >
+                        <Label Text="{Binding Clanak.Sadrzaj}" FontSize="Medium" FontAttributes="Bold"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="20" >
+                        <Label Text="{Binding Clanak.DatumObjave}" FontSize="Medium" FontAttributes="Bold"></Label>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
