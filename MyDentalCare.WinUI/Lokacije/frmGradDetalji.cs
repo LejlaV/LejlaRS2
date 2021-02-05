@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyDentalCare.Model;
@@ -52,17 +53,16 @@ namespace MyDentalCare.WinUI.Lokacije
 
 		private async void btnSnimi_Click(object sender, EventArgs e)
 		{
-			GradUpsertRequest request = new GradUpsertRequest();
-
-			var idObj = cmbDrzava.SelectedValue;
-
-			if (int.TryParse(idObj.ToString(), out int DrzavaId))
+			if(this.Validate() && ValidateCmb())
 			{
-				request.DrzavaId = DrzavaId;
-			}
-			
-			if(this.Validate())
-			{
+				GradUpsertRequest request = new GradUpsertRequest();
+
+				var idObj = cmbDrzava.SelectedValue;
+
+				if (int.TryParse(idObj.ToString(), out int DrzavaId))
+				{
+					request.DrzavaId = DrzavaId;
+				}
 				request.Naziv = txtNaziv.Text;
 				request.PostanskiBroj = txtPostanskiBroj.Text;
 
@@ -95,6 +95,11 @@ namespace MyDentalCare.WinUI.Lokacije
 				e.Cancel = true;
 				errorProvider.SetError(txtNaziv, "Polje mora sadržavati više od 4 karaktera!");
 			}
+			else if (!Regex.IsMatch(txtNaziv.Text, @"^[a-zA-Z ]+$"))
+			{
+				errorProvider.SetError(txtNaziv, "Možete unijeti samo textualne podatke!");
+				e.Cancel = true;
+			}
 			else
 			{
 				errorProvider.SetError(txtNaziv, null);
@@ -113,10 +118,25 @@ namespace MyDentalCare.WinUI.Lokacije
 				e.Cancel = true;
 				errorProvider.SetError(txtPostanskiBroj, "Polje mora sadržavati više od 4 karaktera!");
 			}
+			else if (!Regex.IsMatch(txtPostanskiBroj.Text, @"^[0-9]+$"))
+			{
+				errorProvider.SetError(txtPostanskiBroj, "Možete unijeti samo brojeve!");
+			}
 			else
 			{
 				errorProvider.SetError(txtPostanskiBroj, null);
 			}
+		}
+		private bool ValidateCmb()
+		{
+			if (cmbDrzava.SelectedValue == null || (int)cmbDrzava.SelectedValue == 0)
+				errorProvider.SetError(cmbDrzava, Properties.Resources.Validation_RequiredField);
+			else
+				errorProvider.SetError(cmbDrzava, null);
+
+			var result = string.IsNullOrWhiteSpace(errorProvider.GetError(cmbDrzava));
+
+			return result;
 		}
 	}
 }

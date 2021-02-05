@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyDentalCare.Model.Requests;
@@ -54,6 +55,11 @@ namespace MyDentalCare.WinUI.Kategorija
 			{
 				e.Cancel = true;
 				errorProvider.SetError(txtNaziv, Properties.Resources.Validation_RequiredField);
+			}
+			else if (!Regex.IsMatch(txtNaziv.Text, @"^[a-zA-Z ]+$"))
+			{
+				errorProvider.SetError(txtNaziv, "Možete unijeti samo textualne podatke!");
+				e.Cancel = true;
 			}
 			else
 			{

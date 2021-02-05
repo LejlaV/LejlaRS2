@@ -26,9 +26,9 @@ namespace MyDentalCare.Mobile.Views
 
 		private async void Button_Clicked(object sender, EventArgs e)
 		{
-            if (!Regex.IsMatch(this.Naziv.Text, @"^[a-zA-Z ]+$") && this.Naziv.Text.Length < 4)
+            if (!Regex.IsMatch(this.Naziv.Text, @"^[a-zA-Z ]+$") || this.Naziv.Text.Length < 4 || this.Naziv.Text == null)
             {
-                await DisplayAlert("Greška", "Naziv usluge ne može biti manji od 4 karaktera!", "OK");
+                await DisplayAlert("Greška", "Morate unijeti tekstualne podatke i minimalno 4 karaktera!", "OK");
             }
             else if (!Regex.IsMatch(this.Cijena.Text, @"^[0-9]+$"))
             {

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyDentalCare.Model.Requests;
@@ -120,9 +121,10 @@ namespace MyDentalCare.WinUI.Clanak
 				e.Cancel = true;
 				errorProvider.SetError(txtNaslov, Properties.Resources.Validation_RequiredField);
 			}
-			else if (txtNaslov.TextLength < 4)
+			else if (!Regex.IsMatch(txtNaslov.Text, @"[^A-Za-z0-9_.]"))
 			{
-				errorProvider.SetError(txtNaslov, "Naslov clanka ne moze biti manji od 4 karaktera!");
+				errorProvider.SetError(txtNaslov, "Nepravilan unos!");
+				e.Cancel = true;
 			}
 			else
 			{
@@ -137,9 +139,10 @@ namespace MyDentalCare.WinUI.Clanak
 				e.Cancel = true;
 				errorProvider.SetError(txtSadrzaj, Properties.Resources.Validation_RequiredField);
 			}
-			else if (txtSadrzaj.TextLength < 4)
+			else if (!Regex.IsMatch(txtNaslov.Text, @"[^A-Za-z0-9_.]"))
 			{
-				errorProvider.SetError(txtSadrzaj, "Sadrzaj ne moze biti manji od 4 karaktera!");
+				errorProvider.SetError(txtNaslov, "Nepravilan unos!");
+				e.Cancel = true;
 			}
 			else
 			{

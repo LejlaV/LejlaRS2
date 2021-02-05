@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyDentalCare.Model.Requests;
@@ -75,10 +76,10 @@ namespace MyDentalCare.WinUI.Pacijent
 				e.Cancel = true;
 				errorProvider.SetError(txtIme, "Ovo polje je obavezno");
 			}
-			else if (txtIme.TextLength < 4)
+			else if (!Regex.IsMatch(txtIme.Text, @"^[a-zA-Z ]+$"))
 			{
+				errorProvider.SetError(txtIme, "Možete unijeti samo textualne podatke!");
 				e.Cancel = true;
-				errorProvider.SetError(txtIme, "Polje mora sadržavati više od 4 karaktera!");
 			}
 			else
 			{
@@ -93,10 +94,10 @@ namespace MyDentalCare.WinUI.Pacijent
 				e.Cancel = true;
 				errorProvider.SetError(txtPrezime, "Ovo polje je obavezno");
 			}
-			else if (txtIme.TextLength < 4)
+			else if (!Regex.IsMatch(txtPrezime.Text, @"^[a-zA-Z ]+$"))
 			{
+				errorProvider.SetError(txtPrezime, "Možete unijeti samo textualne podatke!");
 				e.Cancel = true;
-				errorProvider.SetError(txtPrezime, "Polje mora sadržavati više od 4 karaktera!");
 			}
 			else
 			{
@@ -110,6 +111,11 @@ namespace MyDentalCare.WinUI.Pacijent
 			{
 				e.Cancel = true;
 				errorProvider.SetError(txtEmail, Properties.Resources.Validation_RequiredField);
+			}
+			else if (!Regex.IsMatch(txtEmail.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
+			{
+				errorProvider.SetError(txtEmail, "Neispravan format!");
+				e.Cancel = true;
 			}
 			else
 			{

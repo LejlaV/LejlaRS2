@@ -49,17 +49,16 @@ namespace MyDentalCare.WinUI.Lokacije
 
 		private async void btnSnimi_Click(object sender, EventArgs e)
 		{
-			AdresaUpsertRequest request = new AdresaUpsertRequest();
-
-			var idObj = cmbGrad.SelectedValue;
-
-			if (int.TryParse(idObj.ToString(), out int GradId))
+			if(this.ValidateChildren() && ValidateCmb())
 			{
-				request.GradId = GradId;
-			}
-			
-			if(this.ValidateChildren())
-			{
+				AdresaUpsertRequest request = new AdresaUpsertRequest();
+
+				var idObj = cmbGrad.SelectedValue;
+
+				if (int.TryParse(idObj.ToString(), out int GradId))
+				{
+					request.GradId = GradId;
+				}
 				request.Naziv = txtNaziv.Text;
 
 				if (!_Id.HasValue)
@@ -95,6 +94,17 @@ namespace MyDentalCare.WinUI.Lokacije
 			{
 				errorProvider.SetError(txtNaziv, null);
 			}
+		}
+		private bool ValidateCmb()
+		{
+			if (cmbGrad.SelectedValue == null || (int)cmbGrad.SelectedValue == 0)
+				errorProvider.SetError(cmbGrad, Properties.Resources.Validation_RequiredField);
+			else
+				errorProvider.SetError(cmbGrad, null);
+
+			var result = string.IsNullOrWhiteSpace(errorProvider.GetError(cmbGrad));
+
+			return result;
 		}
 	}
 }

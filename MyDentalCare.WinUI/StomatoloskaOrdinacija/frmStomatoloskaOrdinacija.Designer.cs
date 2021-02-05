@@ -97,6 +97,7 @@
 			this.txtNaziv.Name = "txtNaziv";
 			this.txtNaziv.Size = new System.Drawing.Size(329, 20);
 			this.txtNaziv.TabIndex = 5;
+			this.txtNaziv.TextChanged += new System.EventHandler(this.txtNaziv_TextChanged);
 			this.txtNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.txtNaziv_Validating);
 			// 
 			// txtBrojTelefona

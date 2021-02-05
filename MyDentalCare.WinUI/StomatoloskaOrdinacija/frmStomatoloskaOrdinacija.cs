@@ -88,6 +88,11 @@ namespace MyDentalCare.WinUI.StomatoloskaOrdinacija
 			{
 				errorProvider.SetError(txtNaziv, "Naziv stomatoloske ordinacije ne moze biti manji od 4 karaktera!");
 			}
+			else if (!Regex.IsMatch(txtNaziv.Text, @"^[a-zA-Z ]+$"))
+			{
+				errorProvider.SetError(txtNaziv, "Možete unijeti samo textualne podatke!");
+				e.Cancel = true;
+			}
 			else
 			{
 				errorProvider.SetError(txtNaziv, null);
@@ -112,6 +117,11 @@ namespace MyDentalCare.WinUI.StomatoloskaOrdinacija
 			{
 				errorProvider.SetError(txtEmail, null);
 			}
+		}
+
+		private void txtNaziv_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

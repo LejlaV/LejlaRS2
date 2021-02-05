@@ -29,13 +29,13 @@ namespace MyDentalCare.Mobile.Views
         }
         private async void Button_Clicked(object sender, EventArgs e)
 		{
-            if (!Regex.IsMatch(this.Naslov.Text, @"^[a-zA-Z ]+$") && this.Naslov.Text.Length < 4)
+            if (!Regex.IsMatch(this.Naslov.Text, @"[^A-Za-z0-9_.]") || this.Naslov.Text.Length < 4 || this.Naslov.Text == null)
             {
-                await DisplayAlert("Greška", "Naslov ne može biti manji od 4 karaktera!", "OK");
+                await DisplayAlert("Greška", "Neispravan unos!", "OK");
             }
-            else if (!Regex.IsMatch(this.Sadrzaj.Text, @"^[a-zA-Z ]+$") && this.Sadrzaj.Text.Length < 4)
+            else if (!Regex.IsMatch(this.Sadrzaj.Text, @"[^A-Za-z0-9_.]") || this.Sadrzaj.Text.Length < 4 || this.Sadrzaj.Text == null)
             {
-                await DisplayAlert("Greška", "Sadržaj  mora imati minimalno 4 karaktera ", "OK");
+                await DisplayAlert("Greška", "Neispravan unos!", "OK");
             }
             else if (this.KategorijaPicker.SelectedItem == null)
             {

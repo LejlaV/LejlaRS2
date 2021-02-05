@@ -33,9 +33,9 @@ namespace MyDentalCare.Mobile.Views
                 new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.Usluge, Title="Usluge" },
                 new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.Članci, Title="Članci" },
                 new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.Kategorije, Title="Kategorije članaka" },
-                new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.StomatološkaOrdinacija, Title="Stomatološka ordinacija" },
-                new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.Gradovi, Title="Gradovi" },
-                new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.Adrese, Title="Adrese" },
+                //new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.StomatološkaOrdinacija, Title="Stomatološka ordinacija" },
+                //new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.Gradovi, Title="Gradovi" },
+                //new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.Adrese, Title="Adrese" },
                 new HomeMenuItemAdmin {Id = MenuItemTypeAdmin.Odjava, Title="Odjava" },
             };
 

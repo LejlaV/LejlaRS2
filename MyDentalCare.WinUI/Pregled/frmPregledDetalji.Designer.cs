@@ -99,6 +99,7 @@
 			this.txtOpis.Size = new System.Drawing.Size(231, 96);
 			this.txtOpis.TabIndex = 19;
 			this.txtOpis.Text = "";
+			this.txtOpis.Validating += new System.ComponentModel.CancelEventHandler(this.txtOpis_Validating);
 			// 
 			// Pacijenti
 			// 

@@ -56,15 +56,15 @@ namespace MyDentalCare.Mobile.Views
 					case (int)MenuItemTypeAdmin.Kategorije:
 						MenuPagesAdmin.Add(id, new NavigationPage(new KategorijaPage()));
 						break;
-					case (int)MenuItemTypeAdmin.StomatološkaOrdinacija:
-						MenuPagesAdmin.Add(id, new NavigationPage(new StomatoloskaOrdinacija()));
-						break;
-					case (int)MenuItemTypeAdmin.Gradovi:
-						MenuPagesAdmin.Add(id, new NavigationPage(new GradPage()));
-						break;
-					case (int)MenuItemTypeAdmin.Adrese:
-						MenuPagesAdmin.Add(id, new NavigationPage(new AdresaPage()));
-						break;
+					//case (int)MenuItemTypeAdmin.StomatološkaOrdinacija:
+					//	MenuPagesAdmin.Add(id, new NavigationPage(new StomatoloskaOrdinacija()));
+					//	break;
+					//case (int)MenuItemTypeAdmin.Gradovi:
+					//	MenuPagesAdmin.Add(id, new NavigationPage(new GradPage()));
+					//	break;
+					//case (int)MenuItemTypeAdmin.Adrese:
+					//	MenuPagesAdmin.Add(id, new NavigationPage(new AdresaPage()));
+					//	break;
 					case (int)MenuItemTypeAdmin.Odjava:
 						MenuPagesAdmin.Add(id, new NavigationPage(new LoginPage()));
 						break;

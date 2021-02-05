@@ -14,9 +14,9 @@ namespace MyDentalCare.Mobile.Models
 		Usluge,
 		Članci,
 		Kategorije,
-		StomatološkaOrdinacija,
-		Gradovi,
-		Adrese,
+		//StomatološkaOrdinacija,
+		//Gradovi,
+		//Adrese,
 		Odjava
 	}
 	public class HomeMenuItemAdmin

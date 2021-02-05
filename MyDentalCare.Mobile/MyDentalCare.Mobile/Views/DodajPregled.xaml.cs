@@ -31,9 +31,33 @@ namespace MyDentalCare.Mobile.Views
 		private async void Button_Clicked(object sender, EventArgs e)
 		{
 			Model.Rezervacija r = this.RezervacijaPicker.SelectedItem as Model.Rezervacija;
-			if (!Regex.IsMatch(this.Naziv.Text, @"^[a-zA-Z ]+$") && this.Naziv.Text.Length < 4)
+			if (!Regex.IsMatch(this.Naziv.Text, @"^[a-zA-Z ]+$") || this.Naziv.Text.Length < 4 || this.Naziv.Text == null)
 			{
-				await DisplayAlert("Greška", "Naziv pregleda ne može biti manji od 4 karaktera!", "OK");
+				await DisplayAlert("Greška", "Morate unijeti tekstualne podatke i minimalno 4 karaktera!", "OK");
+			}
+			else if (!Regex.IsMatch(this.Opis.Text, @"^[a-zA-Z ]+$") || this.Opis.Text.Length < 4)
+			{
+				await DisplayAlert("Greška", "Morate unijeti tekstualne podatke i minimalno 4 karaktera!", "OK");
+			}
+			else if (this.DijagnozaPicker.SelectedItem == null)
+			{
+				await DisplayAlert("Greška", "Morate odabrati dijagnozu!", "OK");
+			}
+			else if (this.LijekPicker.SelectedItem == null)
+			{
+				await DisplayAlert("Greška", "Morate odabrati lijek!", "OK");
+			}
+			else if (this.RezervacijaPicker.SelectedItem == null)
+			{
+				await DisplayAlert("Greška", "Morate odabrati rezervaciju!", "OK");
+			}
+			else if (this.MedicinskiKartonPicker.SelectedItem == null)
+			{
+				await DisplayAlert("Greška", "Morate odabrati medicinski karton!", "OK");
+			}
+			else if (this.MedicinskiKartonPicker.SelectedItem == null)
+			{
+				await DisplayAlert("Greška", "Morate odabrati korisnika!", "OK");
 			}
 			else
 			{

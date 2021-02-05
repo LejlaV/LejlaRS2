@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyDentalCare.Model.Requests;
@@ -123,66 +124,64 @@ namespace MyDentalCare.WinUI.Pregled
 		PregledUpsertRequest request = new PregledUpsertRequest();
 		private async void btnSnimi_Click(object sender, EventArgs e)
 		{
-			var idObj = cmbLjekar.SelectedValue;
-			if (int.TryParse(idObj.ToString(), out int ljekarId))
+			if (this.ValidateChildren() && ValidateCmb())
 			{
-				request.KorisnikId = ljekarId;
-			}
-
-			
-
-			var idObj2 = cmbRezervacija.SelectedValue;
-			if (int.TryParse(idObj2.ToString(), out int rezervacijaId))
-			{
-				request.RezervacijaId = rezervacijaId;
-
-				RezervacijaUpsertRequest rezervacijaRequest = new RezervacijaUpsertRequest();
-				var listaRezervacija = await _rezervacije.Get<List<Model.Rezervacija>>(null);
-				foreach (var item in listaRezervacija)
+				var idObj = cmbLjekar.SelectedValue;
+				if (int.TryParse(idObj.ToString(), out int ljekarId))
 				{
-					if (item.RezervacijaId == rezervacijaId) 
+					request.KorisnikId = ljekarId;
+				}
+
+				var idObj2 = cmbRezervacija.SelectedValue;
+				if (int.TryParse(idObj2.ToString(), out int rezervacijaId))
+				{
+					request.RezervacijaId = rezervacijaId;
+
+					RezervacijaUpsertRequest rezervacijaRequest = new RezervacijaUpsertRequest();
+					var listaRezervacija = await _rezervacije.Get<List<Model.Rezervacija>>(null);
+					foreach (var item in listaRezervacija)
 					{
-						rezervacijaRequest.DatumVrijeme = item.DatumVrijeme;
-						rezervacijaRequest.PacijentId = item.PacijentId;
-						rezervacijaRequest.UslugaId = item.UslugaId;
-						rezervacijaRequest.Razlog = item.Razlog;
-						// kada se pregled upise u bazu znaci da je pregled obavljen, samim tim rezervacija vise nije aktivna
-						rezervacijaRequest.Aktivna = false;
-						await _rezervacije.Update<Model.Rezervacija>(rezervacijaId, rezervacijaRequest);
+						if (item.RezervacijaId == rezervacijaId)
+						{
+							rezervacijaRequest.DatumVrijeme = item.DatumVrijeme;
+							rezervacijaRequest.PacijentId = item.PacijentId;
+							rezervacijaRequest.UslugaId = item.UslugaId;
+							rezervacijaRequest.Razlog = item.Razlog;
+							// kada se pregled upise u bazu znaci da je pregled obavljen, samim tim rezervacija vise nije aktivna
+							rezervacijaRequest.Aktivna = false;
+							await _rezervacije.Update<Model.Rezervacija>(rezervacijaId, rezervacijaRequest);
+						}
+					}
+
+					var listaPregleda = await _pregledi.Get<List<Model.Pregled>>(null);
+					foreach (var item in listaPregleda)
+					{
+						if (item.RezervacijaId == rezervacijaId)
+						{
+							MessageBox.Show("Pregled za ovu rezervaciju je vec obavljen!");
+							return;
+						}
 					}
 				}
 
-				var listaPregleda = await _pregledi.Get<List<Model.Pregled>>(null);
-				foreach (var item in listaPregleda)
+				var idObj3 = cmbDijagnoza.SelectedValue;
+				if (int.TryParse(idObj3.ToString(), out int dijagnozaId))
 				{
-					if (item.RezervacijaId == rezervacijaId)
-					{
-						MessageBox.Show("Pregled za ovu rezervaciju je vec obavljen!");
-						return;
-					}
+					request.DijagnozaId = dijagnozaId;
 				}
-			}
 
-			var idObj3 = cmbDijagnoza.SelectedValue;
-			if (int.TryParse(idObj3.ToString(), out int dijagnozaId))
-			{
-				request.DijagnozaId = dijagnozaId;
-			}
+				var idObj4 = cmbLijek.SelectedValue;
+				if (int.TryParse(idObj4.ToString(), out int lijekId))
+				{
+					request.LijekId = lijekId;
+				}
 
-			var idObj4 = cmbLijek.SelectedValue;
-			if (int.TryParse(idObj4.ToString(), out int lijekId))
-			{
-				request.LijekId = lijekId;
-			}
+				var idObj5 = cmbMedicinskiKarton.SelectedValue;
+				if (int.TryParse(idObj5.ToString(), out int medicinskiKartonId))
+				{
+					request.MedicinskiKartonId = medicinskiKartonId;
+				}
 
-			var idObj5 = cmbMedicinskiKarton.SelectedValue;
-			if (int.TryParse(idObj5.ToString(), out int medicinskiKartonId))
-			{
-				request.MedicinskiKartonId = medicinskiKartonId;
-			}
-			
-			if (this.ValidateChildren())
-			{
 				request.DatumVrijeme = dateTimePregled.Value = Convert.ToDateTime(System.DateTime.Today.ToShortDateString() + " 10:00 PM");
 				request.Naziv = txtNaziv.Text;
 				request.Opis = txtOpis.Text;
@@ -212,15 +211,69 @@ namespace MyDentalCare.WinUI.Pregled
 				e.Cancel = true;
 				errorProvider.SetError(txtNaziv, Properties.Resources.Validation_RequiredField);
 			}
-			else if (txtNaziv.TextLength < 4)
+			else if (!Regex.IsMatch(txtNaziv.Text, @"^[a-zA-Z ]+$"))
 			{
+				errorProvider.SetError(txtNaziv, "Možete unijeti samo textualne podatke!");
 				e.Cancel = true;
-				errorProvider.SetError(txtNaziv, "Polje mora sadržavati više od 4 karaktera!");
 			}
 			else
 			{
 				errorProvider.SetError(txtNaziv, null);
 			}
+		}
+
+		private void txtOpis_Validating(object sender, CancelEventArgs e)
+		{
+			if (txtOpis.TextLength < 4)
+			{
+				e.Cancel = true;
+				errorProvider.SetError(txtOpis, "Polje mora sadržavati više od 4 karaktera!");
+			}
+			else if (!Regex.IsMatch(txtOpis.Text, @"^[a-zA-Z ]+$"))
+			{
+				errorProvider.SetError(txtOpis, "Možete unijeti samo textualne podatke!");
+				e.Cancel = true;
+			}
+			else
+			{
+				errorProvider.SetError(txtOpis, null);
+			}
+		}
+
+		private bool ValidateCmb()
+		{
+			if (cmbRezervacija.SelectedValue == null || (int)cmbRezervacija.SelectedValue == 0)
+				errorProvider.SetError(cmbRezervacija, Properties.Resources.Validation_RequiredField);
+			else
+				errorProvider.SetError(cmbRezervacija, null);
+
+			if (cmbMedicinskiKarton.SelectedValue == null || (int)cmbMedicinskiKarton.SelectedValue == 0)
+				errorProvider.SetError(cmbMedicinskiKarton, Properties.Resources.Validation_RequiredField);
+			else
+				errorProvider.SetError(cmbMedicinskiKarton, null);
+
+			if (cmbDijagnoza.SelectedValue == null || (int)cmbDijagnoza.SelectedValue == 0)
+				errorProvider.SetError(cmbDijagnoza, Properties.Resources.Validation_RequiredField);
+			else
+				errorProvider.SetError(cmbDijagnoza, null);
+
+			if (cmbLijek.SelectedValue == null || (int)cmbLijek.SelectedValue == 0)
+				errorProvider.SetError(cmbLijek, Properties.Resources.Validation_RequiredField);
+			else
+				errorProvider.SetError(cmbLijek, null);
+
+			if (cmbLjekar.SelectedValue == null || (int)cmbLjekar.SelectedValue == 0)
+				errorProvider.SetError(cmbLijek, Properties.Resources.Validation_RequiredField);
+			else
+				errorProvider.SetError(cmbLjekar, null);
+
+			var result = string.IsNullOrWhiteSpace(errorProvider.GetError(cmbRezervacija)) &&
+						 string.IsNullOrWhiteSpace(errorProvider.GetError(cmbMedicinskiKarton)) &&
+						 string.IsNullOrWhiteSpace(errorProvider.GetError(cmbDijagnoza)) &&
+						 string.IsNullOrWhiteSpace(errorProvider.GetError(cmbLijek)) &&
+						 string.IsNullOrWhiteSpace(errorProvider.GetError(cmbLjekar));
+
+			return result;
 		}
 	}
 }

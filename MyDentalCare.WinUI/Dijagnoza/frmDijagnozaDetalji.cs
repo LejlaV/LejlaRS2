@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyDentalCare.Model.Requests;
@@ -64,9 +65,10 @@ namespace MyDentalCare.WinUI.Dijagnoza
 				e.Cancel = true;
 				errorProvider.SetError(txtNaziv, Properties.Resources.Validation_RequiredField);
 			}
-			else if (txtNaziv.TextLength < 4)
+			else if (!Regex.IsMatch(txtNaziv.Text, @"^[a-zA-Z ]+$"))
 			{
-				errorProvider.SetError(txtNaziv, "Naziv dijagnoze ne moze biti manji od 4 karaktera!");
+				errorProvider.SetError(txtNaziv, "Možete unijeti samo textualne podatke!");
+				e.Cancel = true;
 			}
 			else
 			{

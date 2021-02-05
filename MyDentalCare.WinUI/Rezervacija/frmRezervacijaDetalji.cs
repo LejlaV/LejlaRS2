@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyDentalCare.Model;
@@ -77,20 +78,22 @@ namespace MyDentalCare.WinUI.Rezervacija
 		RezervacijaUpsertRequest request = new RezervacijaUpsertRequest();
 		private async void btnSnimi_Click(object sender, EventArgs e)
 		{
-			var idObj = cmbUsluge.SelectedValue;
+			
+			if (this.ValidateChildren() && ValidateCmb())
+			{
+				var idObj = cmbUsluge.SelectedValue;
 
-			if (int.TryParse(idObj.ToString(), out int uslugaId))
-			{
-				request.UslugaId = uslugaId;
-			}
-			var idObj2 = cmbPacijent.SelectedValue;
+				if (int.TryParse(idObj.ToString(), out int uslugaId))
+				{
+					request.UslugaId = uslugaId;
+				}
+				var idObj2 = cmbPacijent.SelectedValue;
 
-			if (int.TryParse(idObj2.ToString(), out int pacijentId))
-			{
-				request.PacijentId = pacijentId;
-			}
-			if (this.ValidateChildren())
-			{
+				if (int.TryParse(idObj2.ToString(), out int pacijentId))
+				{
+					request.PacijentId = pacijentId;
+				}
+
 				request.DatumVrijeme = dateTimeRezervacija.Value = Convert.ToDateTime(System.DateTime.Today.ToShortDateString() + " 10:00 PM");
 
 				request.Razlog = txtRazlog.Text;
@@ -120,15 +123,33 @@ namespace MyDentalCare.WinUI.Rezervacija
 				e.Cancel = true;
 				errorProvider.SetError(txtRazlog, Properties.Resources.Validation_RequiredField);
 			}
-			else if (txtRazlog.TextLength < 4)
+			else if (!Regex.IsMatch(txtRazlog.Text, @"^[a-zA-Z ]+$"))
 			{
+				errorProvider.SetError(txtRazlog, "Možete unijeti samo textualne podatke!");
 				e.Cancel = true;
-				errorProvider.SetError(txtRazlog, "Polje mora sadržavati više od 4 karaktera!");
 			}
 			else
 			{
 				errorProvider.SetError(txtRazlog, null);
 			}
+		}
+
+		private bool ValidateCmb()
+		{
+			if (cmbPacijent.SelectedValue == null || (int)cmbPacijent.SelectedValue == 0)
+				errorProvider.SetError(cmbPacijent, Properties.Resources.Validation_RequiredField);
+			else
+				errorProvider.SetError(cmbPacijent, null);
+
+			if (cmbUsluge.SelectedValue == null || (int)cmbUsluge.SelectedValue == 0)
+				errorProvider.SetError(cmbUsluge, Properties.Resources.Validation_RequiredField);
+			else
+				errorProvider.SetError(cmbUsluge, null);
+
+			var result = string.IsNullOrWhiteSpace(errorProvider.GetError(cmbPacijent)) &&
+						 string.IsNullOrWhiteSpace(errorProvider.GetError(cmbUsluge));
+
+			return result;
 		}
 	}
 }

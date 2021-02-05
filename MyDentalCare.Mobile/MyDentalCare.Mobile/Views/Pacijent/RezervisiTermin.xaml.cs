@@ -32,7 +32,7 @@ namespace MyDentalCare.Mobile.Views.Pacijent
 			{
 				await DisplayAlert("Greška", "Morate odabrati uslugu za rezervaciju", "OK");
 			}
-			else if (this.DatumVrijeme.Date < DateTime.Now) 
+			else if (this.DatumVrijeme.Date < DateTime.Now || this.DatumVrijeme.Date == null) 
 			{
 				await DisplayAlert("Greška", "Unesite validan datum", "OK");
 			}

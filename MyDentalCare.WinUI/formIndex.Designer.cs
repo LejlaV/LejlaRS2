@@ -30,14 +30,10 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formIndex));
 			this.panelSideMenu = new System.Windows.Forms.Panel();
-			this.subMenuLokacije = new System.Windows.Forms.Panel();
-			this.button35 = new System.Windows.Forms.Button();
-			this.button34 = new System.Windows.Forms.Button();
-			this.button33 = new System.Windows.Forms.Button();
-			this.button32 = new System.Windows.Forms.Button();
-			this.button30 = new System.Windows.Forms.Button();
-			this.button31 = new System.Windows.Forms.Button();
-			this.button27 = new System.Windows.Forms.Button();
+			this.subMenuIzvjestaji = new System.Windows.Forms.Panel();
+			this.button43 = new System.Windows.Forms.Button();
+			this.button44 = new System.Windows.Forms.Button();
+			this.button38 = new System.Windows.Forms.Button();
 			this.subMenuUsluge = new System.Windows.Forms.Panel();
 			this.button19 = new System.Windows.Forms.Button();
 			this.button26 = new System.Windows.Forms.Button();
@@ -81,12 +77,8 @@
 			this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
 			this.panelChildForm = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.button38 = new System.Windows.Forms.Button();
-			this.subMenuIzvjestaji = new System.Windows.Forms.Panel();
-			this.button43 = new System.Windows.Forms.Button();
-			this.button44 = new System.Windows.Forms.Button();
 			this.panelSideMenu.SuspendLayout();
-			this.subMenuLokacije.SuspendLayout();
+			this.subMenuIzvjestaji.SuspendLayout();
 			this.subMenuUsluge.SuspendLayout();
 			this.subMenuDijagnoze.SuspendLayout();
 			this.subMenuLijekovi.SuspendLayout();
@@ -100,7 +92,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
 			this.panelChildForm.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			this.subMenuIzvjestaji.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panelSideMenu
@@ -109,8 +100,6 @@
 			this.panelSideMenu.BackColor = System.Drawing.SystemColors.Window;
 			this.panelSideMenu.Controls.Add(this.subMenuIzvjestaji);
 			this.panelSideMenu.Controls.Add(this.button38);
-			this.panelSideMenu.Controls.Add(this.subMenuLokacije);
-			this.panelSideMenu.Controls.Add(this.button27);
 			this.panelSideMenu.Controls.Add(this.subMenuUsluge);
 			this.panelSideMenu.Controls.Add(this.button18);
 			this.panelSideMenu.Controls.Add(this.subMenuDijagnoze);
@@ -137,130 +126,62 @@
 			this.panelSideMenu.TabIndex = 0;
 			this.panelSideMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSideMenu_Paint);
 			// 
-			// subMenuLokacije
+			// subMenuIzvjestaji
 			// 
-			this.subMenuLokacije.Controls.Add(this.button35);
-			this.subMenuLokacije.Controls.Add(this.button34);
-			this.subMenuLokacije.Controls.Add(this.button33);
-			this.subMenuLokacije.Controls.Add(this.button32);
-			this.subMenuLokacije.Controls.Add(this.button30);
-			this.subMenuLokacije.Controls.Add(this.button31);
-			this.subMenuLokacije.Dock = System.Windows.Forms.DockStyle.Top;
-			this.subMenuLokacije.Location = new System.Drawing.Point(0, 1481);
-			this.subMenuLokacije.Name = "subMenuLokacije";
-			this.subMenuLokacije.Size = new System.Drawing.Size(233, 262);
-			this.subMenuLokacije.TabIndex = 21;
+			this.subMenuIzvjestaji.Controls.Add(this.button43);
+			this.subMenuIzvjestaji.Controls.Add(this.button44);
+			this.subMenuIzvjestaji.Dock = System.Windows.Forms.DockStyle.Top;
+			this.subMenuIzvjestaji.Location = new System.Drawing.Point(0, 1481);
+			this.subMenuIzvjestaji.Name = "subMenuIzvjestaji";
+			this.subMenuIzvjestaji.Size = new System.Drawing.Size(233, 103);
+			this.subMenuIzvjestaji.TabIndex = 23;
 			// 
-			// button35
+			// button43
 			// 
-			this.button35.BackColor = System.Drawing.SystemColors.Control;
-			this.button35.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button35.FlatAppearance.BorderSize = 0;
-			this.button35.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button35.Location = new System.Drawing.Point(0, 205);
-			this.button35.Name = "button35";
-			this.button35.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-			this.button35.Size = new System.Drawing.Size(233, 51);
-			this.button35.TabIndex = 9;
-			this.button35.Text = "Stomatoloska ordinacija";
-			this.button35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button35.UseVisualStyleBackColor = false;
-			this.button35.Click += new System.EventHandler(this.button35_Click);
+			this.button43.BackColor = System.Drawing.SystemColors.Control;
+			this.button43.Dock = System.Windows.Forms.DockStyle.Top;
+			this.button43.FlatAppearance.BorderSize = 0;
+			this.button43.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button43.Location = new System.Drawing.Point(0, 45);
+			this.button43.Name = "button43";
+			this.button43.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+			this.button43.Size = new System.Drawing.Size(233, 49);
+			this.button43.TabIndex = 5;
+			this.button43.Text = "Rezervacije";
+			this.button43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button43.UseVisualStyleBackColor = false;
+			this.button43.Click += new System.EventHandler(this.button43_Click);
 			// 
-			// button34
+			// button44
 			// 
-			this.button34.BackColor = System.Drawing.SystemColors.Control;
-			this.button34.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button34.FlatAppearance.BorderSize = 0;
-			this.button34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button34.Location = new System.Drawing.Point(0, 165);
-			this.button34.Name = "button34";
-			this.button34.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-			this.button34.Size = new System.Drawing.Size(233, 40);
-			this.button34.TabIndex = 8;
-			this.button34.Text = "Popis drzava";
-			this.button34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button34.UseVisualStyleBackColor = false;
-			this.button34.Click += new System.EventHandler(this.button34_Click);
+			this.button44.BackColor = System.Drawing.SystemColors.Control;
+			this.button44.Dock = System.Windows.Forms.DockStyle.Top;
+			this.button44.FlatAppearance.BorderSize = 0;
+			this.button44.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button44.Location = new System.Drawing.Point(0, 0);
+			this.button44.Name = "button44";
+			this.button44.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+			this.button44.Size = new System.Drawing.Size(233, 45);
+			this.button44.TabIndex = 4;
+			this.button44.Text = "Pregledi";
+			this.button44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button44.UseVisualStyleBackColor = false;
+			this.button44.Click += new System.EventHandler(this.button44_Click);
 			// 
-			// button33
+			// button38
 			// 
-			this.button33.BackColor = System.Drawing.SystemColors.Control;
-			this.button33.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button33.FlatAppearance.BorderSize = 0;
-			this.button33.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button33.Location = new System.Drawing.Point(0, 125);
-			this.button33.Name = "button33";
-			this.button33.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-			this.button33.Size = new System.Drawing.Size(233, 40);
-			this.button33.TabIndex = 7;
-			this.button33.Text = "Dodaj novi grad";
-			this.button33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button33.UseVisualStyleBackColor = false;
-			this.button33.Click += new System.EventHandler(this.button33_Click);
-			// 
-			// button32
-			// 
-			this.button32.BackColor = System.Drawing.SystemColors.Control;
-			this.button32.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button32.FlatAppearance.BorderSize = 0;
-			this.button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button32.Location = new System.Drawing.Point(0, 85);
-			this.button32.Name = "button32";
-			this.button32.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-			this.button32.Size = new System.Drawing.Size(233, 40);
-			this.button32.TabIndex = 6;
-			this.button32.Text = "Popis gradova";
-			this.button32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button32.UseVisualStyleBackColor = false;
-			this.button32.Click += new System.EventHandler(this.button32_Click);
-			// 
-			// button30
-			// 
-			this.button30.BackColor = System.Drawing.SystemColors.Control;
-			this.button30.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button30.FlatAppearance.BorderSize = 0;
-			this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button30.Location = new System.Drawing.Point(0, 45);
-			this.button30.Name = "button30";
-			this.button30.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-			this.button30.Size = new System.Drawing.Size(233, 40);
-			this.button30.TabIndex = 5;
-			this.button30.Text = "Dodaj novu adresu";
-			this.button30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button30.UseVisualStyleBackColor = false;
-			this.button30.Click += new System.EventHandler(this.button30_Click);
-			// 
-			// button31
-			// 
-			this.button31.BackColor = System.Drawing.SystemColors.Control;
-			this.button31.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button31.FlatAppearance.BorderSize = 0;
-			this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button31.Location = new System.Drawing.Point(0, 0);
-			this.button31.Name = "button31";
-			this.button31.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-			this.button31.Size = new System.Drawing.Size(233, 45);
-			this.button31.TabIndex = 4;
-			this.button31.Text = "Popis adresa";
-			this.button31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button31.UseVisualStyleBackColor = false;
-			this.button31.Click += new System.EventHandler(this.button31_Click);
-			// 
-			// button27
-			// 
-			this.button27.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button27.FlatAppearance.BorderSize = 0;
-			this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button27.Location = new System.Drawing.Point(0, 1436);
-			this.button27.Name = "button27";
-			this.button27.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-			this.button27.Size = new System.Drawing.Size(233, 45);
-			this.button27.TabIndex = 20;
-			this.button27.Text = "Lokacije";
-			this.button27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button27.UseVisualStyleBackColor = true;
-			this.button27.Click += new System.EventHandler(this.button27_Click);
+			this.button38.Dock = System.Windows.Forms.DockStyle.Top;
+			this.button38.FlatAppearance.BorderSize = 0;
+			this.button38.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button38.Location = new System.Drawing.Point(0, 1436);
+			this.button38.Name = "button38";
+			this.button38.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+			this.button38.Size = new System.Drawing.Size(233, 45);
+			this.button38.TabIndex = 22;
+			this.button38.Text = "Izvještaji";
+			this.button38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button38.UseVisualStyleBackColor = true;
+			this.button38.Click += new System.EventHandler(this.button38_Click);
 			// 
 			// subMenuUsluge
 			// 
@@ -356,7 +277,7 @@
 			this.button29.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
 			this.button29.Size = new System.Drawing.Size(233, 45);
 			this.button29.TabIndex = 4;
-			this.button29.Text = "Spisak uspostavljenih dijagnoza";
+			this.button29.Text = "Spisak postavljenih dijagnoza";
 			this.button29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.button29.UseVisualStyleBackColor = false;
 			this.button29.Click += new System.EventHandler(this.button29_Click);
@@ -868,63 +789,6 @@
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
 			// 
-			// button38
-			// 
-			this.button38.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button38.FlatAppearance.BorderSize = 0;
-			this.button38.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button38.Location = new System.Drawing.Point(0, 1743);
-			this.button38.Name = "button38";
-			this.button38.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-			this.button38.Size = new System.Drawing.Size(233, 45);
-			this.button38.TabIndex = 22;
-			this.button38.Text = "Izvještaji";
-			this.button38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button38.UseVisualStyleBackColor = true;
-			this.button38.Click += new System.EventHandler(this.button38_Click);
-			// 
-			// subMenuIzvjestaji
-			// 
-			this.subMenuIzvjestaji.Controls.Add(this.button43);
-			this.subMenuIzvjestaji.Controls.Add(this.button44);
-			this.subMenuIzvjestaji.Dock = System.Windows.Forms.DockStyle.Top;
-			this.subMenuIzvjestaji.Location = new System.Drawing.Point(0, 1788);
-			this.subMenuIzvjestaji.Name = "subMenuIzvjestaji";
-			this.subMenuIzvjestaji.Size = new System.Drawing.Size(233, 103);
-			this.subMenuIzvjestaji.TabIndex = 23;
-			// 
-			// button43
-			// 
-			this.button43.BackColor = System.Drawing.SystemColors.Control;
-			this.button43.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button43.FlatAppearance.BorderSize = 0;
-			this.button43.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button43.Location = new System.Drawing.Point(0, 45);
-			this.button43.Name = "button43";
-			this.button43.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-			this.button43.Size = new System.Drawing.Size(233, 49);
-			this.button43.TabIndex = 5;
-			this.button43.Text = "Rezervacije";
-			this.button43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button43.UseVisualStyleBackColor = false;
-			this.button43.Click += new System.EventHandler(this.button43_Click);
-			// 
-			// button44
-			// 
-			this.button44.BackColor = System.Drawing.SystemColors.Control;
-			this.button44.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button44.FlatAppearance.BorderSize = 0;
-			this.button44.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button44.Location = new System.Drawing.Point(0, 0);
-			this.button44.Name = "button44";
-			this.button44.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-			this.button44.Size = new System.Drawing.Size(233, 45);
-			this.button44.TabIndex = 4;
-			this.button44.Text = "Pregledi";
-			this.button44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button44.UseVisualStyleBackColor = false;
-			this.button44.Click += new System.EventHandler(this.button44_Click);
-			// 
 			// formIndex
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -939,7 +803,7 @@
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.formIndex_Load);
 			this.panelSideMenu.ResumeLayout(false);
-			this.subMenuLokacije.ResumeLayout(false);
+			this.subMenuIzvjestaji.ResumeLayout(false);
 			this.subMenuUsluge.ResumeLayout(false);
 			this.subMenuDijagnoze.ResumeLayout(false);
 			this.subMenuLijekovi.ResumeLayout(false);
@@ -953,7 +817,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
 			this.panelChildForm.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			this.subMenuIzvjestaji.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1003,14 +866,6 @@
 		private System.Windows.Forms.Button button19;
 		private System.Windows.Forms.Button button26;
 		private System.Windows.Forms.Button button18;
-		private System.Windows.Forms.Panel subMenuLokacije;
-		private System.Windows.Forms.Button button35;
-		private System.Windows.Forms.Button button34;
-		private System.Windows.Forms.Button button33;
-		private System.Windows.Forms.Button button32;
-		private System.Windows.Forms.Button button30;
-		private System.Windows.Forms.Button button31;
-		private System.Windows.Forms.Button button27;
 		private System.Windows.Forms.Button button37;
 		private System.Windows.Forms.Button button36;
 		private System.Windows.Forms.Panel subMenuIzvjestaji;

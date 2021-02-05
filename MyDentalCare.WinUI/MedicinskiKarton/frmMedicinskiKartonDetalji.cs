@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyDentalCare.Model.Requests;
@@ -61,14 +62,14 @@ namespace MyDentalCare.WinUI.MedicinskiKarton
 		MedicinskiKartonUpsertRequest request = new MedicinskiKartonUpsertRequest();
 		private async void btnSnimi_Click(object sender, EventArgs e)
 		{
-			var idObj = cmbPacijent.SelectedValue;
-			if (int.TryParse(idObj.ToString(), out int pacijentId))
+			if(this.ValidateChildren() && ValidateCmb())
 			{
-				request.PacijentId = pacijentId;
-			}
-			
-			if(this.ValidateChildren())
-			{
+				var idObj = cmbPacijent.SelectedValue;
+				if (int.TryParse(idObj.ToString(), out int pacijentId))
+				{
+					request.PacijentId = pacijentId;
+				}
+
 				var listaPacijenata = await _pacijenti.Get<List<Model.Pacijent>>(null);
 				foreach (var item in listaPacijenata)
 				{
@@ -109,6 +110,31 @@ namespace MyDentalCare.WinUI.MedicinskiKarton
 				MessageBox.Show("Operacija nije uspjela!");
 				this.Close();
 			}
+		}
+
+		private void txtOpis_Validating(object sender, CancelEventArgs e)
+		{
+			if (!Regex.IsMatch(txtOpis.Text, @"^[a-zA-Z ]+$"))
+			{
+				errorProvider.SetError(txtOpis, "Možete unijeti samo textualne podatke!");
+				e.Cancel = true;
+			}
+			else
+			{
+				errorProvider.SetError(txtOpis, null);
+			}
+		}
+
+		private bool ValidateCmb()
+		{
+			if (cmbPacijent.SelectedValue == null || (int)cmbPacijent.SelectedValue == 0)
+				errorProvider.SetError(cmbPacijent, Properties.Resources.Validation_RequiredField);
+			else
+				errorProvider.SetError(cmbPacijent, null);
+
+			var result = string.IsNullOrWhiteSpace(errorProvider.GetError(cmbPacijent));
+
+			return result;
 		}
 	}
 }

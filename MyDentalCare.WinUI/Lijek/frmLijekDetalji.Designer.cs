@@ -86,6 +86,7 @@
 			this.txtUputstvo.Size = new System.Drawing.Size(294, 107);
 			this.txtUputstvo.TabIndex = 5;
 			this.txtUputstvo.Text = "";
+			this.txtUputstvo.Validating += new System.ComponentModel.CancelEventHandler(this.txtUputstvo_Validating);
 			// 
 			// frmLijekDetalji
 			// 

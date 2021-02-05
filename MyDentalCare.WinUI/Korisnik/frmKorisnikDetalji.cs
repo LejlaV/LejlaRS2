@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyDentalCare.Model.Requests;
@@ -74,8 +75,13 @@ namespace MyDentalCare.WinUI.Korisnik
 		{
 			if (string.IsNullOrWhiteSpace(txtIme.Text))
 			{
-				e.Cancel = true;
 				errorProvider.SetError(txtIme, "Ovo polje je obavezno");
+				e.Cancel = true;
+			}
+			else if (!Regex.IsMatch(txtIme.Text, @"^[a-zA-Z ]+$"))
+			{
+				errorProvider.SetError(txtIme, "Možete unijeti samo textualne podatke!");
+				e.Cancel = true;
 			}
 			else
 			{
@@ -87,8 +93,13 @@ namespace MyDentalCare.WinUI.Korisnik
 		{
 			if (string.IsNullOrWhiteSpace(txtPrezime.Text))
 			{
-				e.Cancel = true;
 				errorProvider.SetError(txtPrezime, Properties.Resources.Validation_RequiredField);
+				e.Cancel = true;
+			}
+			else if (!Regex.IsMatch(txtPrezime.Text, @"^[a-zA-Z ]+$"))
+			{
+				errorProvider.SetError(txtIme, "Možete unijeti samo textualne podatke!");
+				e.Cancel = true;
 			}
 			else
 			{
@@ -100,8 +111,13 @@ namespace MyDentalCare.WinUI.Korisnik
 		{
 			if (string.IsNullOrWhiteSpace(txtEmail.Text))
 			{
-				e.Cancel = true;
 				errorProvider.SetError(txtEmail, Properties.Resources.Validation_RequiredField);
+				e.Cancel = true;
+			}
+			else if (!Regex.IsMatch(txtEmail.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
+			{
+				errorProvider.SetError(txtEmail, "Neispravan format!");
+				e.Cancel = true;
 			}
 			else
 			{
@@ -114,11 +130,16 @@ namespace MyDentalCare.WinUI.Korisnik
 			if (string.IsNullOrWhiteSpace(txtKorisnickoIme.Text) || txtKorisnickoIme.Text.Length < 3)
 			{
 				e.Cancel = true;
-				errorProvider.SetError(txtEmail, Properties.Resources.Validation_RequiredField);
+				errorProvider.SetError(txtKorisnickoIme, Properties.Resources.Validation_RequiredField);
+			}
+			else if (!Regex.IsMatch(txtKorisnickoIme.Text, @"[^A-Za-z0-9_.]"))
+			{
+				errorProvider.SetError(txtKorisnickoIme, "Nepravilan unos!");
+				e.Cancel = true;
 			}
 			else
 			{
-				errorProvider.SetError(txtEmail, null);
+				errorProvider.SetError(txtKorisnickoIme, null);
 			}
 		}
 

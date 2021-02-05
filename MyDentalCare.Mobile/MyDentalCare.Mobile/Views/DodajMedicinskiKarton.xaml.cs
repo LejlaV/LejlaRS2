@@ -27,39 +27,47 @@ namespace MyDentalCare.Mobile.Views
 		private async void Button_Clicked(object sender, EventArgs e)
 		{
 			Model.Pacijent pacijent = this.PacijentPicker.SelectedItem as Model.Pacijent;
-			try
+			if (this.PacijentPicker.SelectedItem == null)
 			{
-				if (this.PacijentPicker.SelectedItem!=null)
+				await DisplayAlert("Greška", "Morate odabrati pacijenta!", "OK");
+			}
+			else
+			{
+				try
 				{
-					var listaMedKartona = await _medicinskiKarton.Get<List<Model.MedicinskiKarton>>(null);
-					foreach (var item in listaMedKartona)
+					if (this.PacijentPicker.SelectedItem != null)
 					{
-						if (item.Pacijent.PacijentId == pacijent.PacijentId)
+						var listaMedKartona = await _medicinskiKarton.Get<List<Model.MedicinskiKarton>>(null);
+						foreach (var item in listaMedKartona)
 						{
-							await Application.Current.MainPage.DisplayAlert(" ", "Medicinski karton za ovog pacijenta vec postoji!", "OK");
-							return;
+							if (item.Pacijent.PacijentId == pacijent.PacijentId)
+							{
+								await Application.Current.MainPage.DisplayAlert(" ", "Medicinski karton za ovog pacijenta vec postoji!", "OK");
+								return;
+							}
 						}
-					}
 
-					var listaPacijenata = await _pacijent.Get<List<Model.Pacijent>>(null);
-					foreach (var item in listaPacijenata)
-					{
-						if (item.PacijentId == pacijent.PacijentId)
+						var listaPacijenata = await _pacijent.Get<List<Model.Pacijent>>(null);
+						foreach (var item in listaPacijenata)
 						{
-							string pacijentPodaci = item.Ime + " " + item.Prezime;
-							model.Naziv = "Medicinski karton -> " + pacijentPodaci;
+							if (item.PacijentId == pacijent.PacijentId)
+							{
+								string pacijentPodaci = item.Ime + " " + item.Prezime;
+								model.Naziv = "Medicinski karton -> " + pacijentPodaci;
+							}
 						}
 					}
-				}
 					model.PacijentId = pacijent.PacijentId;
 					model.Opis = this.Opis.Text;
 					model.DatumVrijeme = DateTime.Now;
-                    await model.DodajMedicinskiKarton();
-                    await Navigation.PushAsync(new PrikazMedicinskihKartona());
-			}
-			catch (Exception err)
-			{
-				throw new Exception(err.Message);
+					await model.DodajMedicinskiKarton();
+					await Navigation.PushAsync(new PrikazMedicinskihKartona());
+				}
+				catch (Exception err)
+				{
+					throw new Exception(err.Message);
+				}
+
 			}
 		}
 	}
