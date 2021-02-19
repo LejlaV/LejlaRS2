@@ -42,37 +42,38 @@ namespace MyDentalCare.WinUI.Login
 					return;
 				}
 
-				Model.Korisnik korisnik = null;
-				List<Model.Korisnik> lista = await _service.Get<List<Model.Korisnik>>(null);
-				foreach (var item in lista)
-				{
-					if (item.KorisnickoIme == KorisnickoIme)
-					{
-							korisnik = item;
-							break;
-					}
-				}
-				if (korisnik != null)
-				{
-					var newHash = GenerateHash(korisnik.PasswordSalt, Lozinka);
-					if (newHash == korisnik.PasswordHash)
-					{
+				//Model.Korisnik korisnik = null;
+				//List<Model.Korisnik> lista = await _service.Get<List<Model.Korisnik>>(null);
+				//foreach (var item in lista)
+				//{
+				//	if (item.KorisnickoIme == KorisnickoIme)
+				//	{
+				//			korisnik = item;
+				//			break;
+				//	}
+				//}
+				//if (korisnik != null)
+				//{
+				//	var newHash = GenerateHash(korisnik.PasswordSalt, Lozinka);
+				//	if (newHash == korisnik.PasswordHash)
+				//	{
 						await _service.Get<dynamic>(null);
 						formIndex frm = new formIndex();
 						frm.Show();
-					}
-					else
-					{
-						MessageBox.Show("Niste autentificirani", "Autentifikacija", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					}
-				}
+					//}
+					//else
+					//{
+					//	MessageBox.Show("Niste autentificirani", "Autentifikacija", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					//}
+				//}
 				//await _service.Get<dynamic>(null);
 				//formIndex frm = new formIndex();
 				//frm.Show();
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Autentifikacija", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				//MessageBox.Show(ex.Message, "Autentifikacija", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Niste autentificirani", "Autentifikacija", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		public static string GenerateHash(string salt, string password)

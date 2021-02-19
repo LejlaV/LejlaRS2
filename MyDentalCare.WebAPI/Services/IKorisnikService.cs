@@ -15,5 +15,7 @@ namespace MyDentalCare.WebAPI.Services
 		Model.Korisnik Insert(KorisnikInsertRequest request);
 		Model.Korisnik Update(int id, KorisnikInsertRequest request);
 		Model.Korisnik Authenticiraj(string username, string pass);
+		Model.Korisnik AuthenticirajPacijenta(string username, string pass);
+
 	}
 }

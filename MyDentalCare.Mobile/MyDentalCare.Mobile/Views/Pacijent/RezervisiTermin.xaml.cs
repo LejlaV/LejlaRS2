@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MyDentalCare.Mobile.ViewModels;
 using MyDentalCare.Model;
@@ -31,6 +32,10 @@ namespace MyDentalCare.Mobile.Views.Pacijent
 			if (this.UslugaPicker.SelectedItem == null)
 			{
 				await DisplayAlert("Greška", "Morate odabrati uslugu za rezervaciju", "OK");
+			}
+			else if (this.Razlog.Text == null || !Regex.IsMatch(this.Razlog.Text, @"^[a-zA-Z ]+$"))
+			{
+				await DisplayAlert("Greška", "Morate unijeti tekstualne podatke i minimalno 4 karaktera!", "OK");
 			}
 			else if (this.DatumVrijeme.Date < DateTime.Now || this.DatumVrijeme.Date == null) 
 			{

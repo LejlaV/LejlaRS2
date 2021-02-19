@@ -23,7 +23,7 @@ namespace MyDentalCare.WebAPI.Services
 		}
 		public Model.Korisnik Authenticiraj(string username, string pass)
 		{
-			var user = _context.Korisnik.Include("KorisnikUloga.Uloga").FirstOrDefault(x => x.KorisnickoIme == username);
+			var user = _context.Korisnik.Include(x=> x.KorisnikUloga).FirstOrDefault(x => x.KorisnickoIme == username);
 
 			if (user != null)
 			{
@@ -36,7 +36,21 @@ namespace MyDentalCare.WebAPI.Services
 			}
 			return null;
 		}
+		public Model.Korisnik AuthenticirajPacijenta(string username, string pass)
+		{
+			var user = _context.Pacijent.Where(x => x.KorisnickoIme == username).FirstOrDefault();
 
+			if (user != null)
+			{
+				var newHash = GenerateHash(user.PasswordSalt, pass);
+
+				if (newHash == user.PasswordHash)
+				{
+					return _mapper.Map<Model.Korisnik>(user);
+				}
+			}
+			return null;
+		}
 		public static string GenerateSalt()
 		{
 			var buf = new byte[16];
@@ -58,7 +72,7 @@ namespace MyDentalCare.WebAPI.Services
 		}
 		public List<Model.Korisnik> Get(KorisnikSearchRequest request)
 		{
-			var query = _context.Korisnik.AsQueryable();
+			var query = _context.Korisnik.Include(i => i.KorisnikUloga).AsQueryable();
 
 			if(!string.IsNullOrWhiteSpace(request?.Ime))
 			{

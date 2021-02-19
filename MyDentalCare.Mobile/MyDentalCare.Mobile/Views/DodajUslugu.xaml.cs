@@ -30,7 +30,7 @@ namespace MyDentalCare.Mobile.Views
             {
                 await DisplayAlert("Greška", "Morate unijeti tekstualne podatke i minimalno 4 karaktera!", "OK");
             }
-            else if (!Regex.IsMatch(this.Cijena.Text, @"^[0-9]+$"))
+            else if (!Regex.IsMatch(this.Cijena.Text, @"^[0-9]+$") || this.Cijena.Text == null)
             {
                 await DisplayAlert("Greška", "Možete unijeti samo brojeve", "OK");
             }

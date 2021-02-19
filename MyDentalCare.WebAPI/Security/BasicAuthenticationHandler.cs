@@ -15,17 +15,17 @@ namespace MyDentalCare.WebAPI.Security
 {
 	public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
 	{
-        private readonly IKorisnikService _userService;
         private readonly ILoginService _userServiceLogin;
         public BasicAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
             UrlEncoder encoder,
             ISystemClock clock,
-            IKorisnikService userService)
+            ILoginService loginService
+            )
             : base(options, logger, encoder, clock)
         {
-            _userService = userService;
+            _userServiceLogin = loginService;
         }
 
         private bool Pacijent = false;
@@ -35,6 +35,7 @@ namespace MyDentalCare.WebAPI.Security
                 return AuthenticateResult.Fail("Missing Authorization Header");
 
             Model.KorisnikLogin user = null;
+
             try
             {
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
@@ -43,7 +44,6 @@ namespace MyDentalCare.WebAPI.Security
                 var username = credentials[0];
                 var password = credentials[1];
                 user = _userServiceLogin.Authenticiraj(username, password);
-
                 if (user == null)
                 {
                     user = _userServiceLogin.AuthenticirajPacijenta(username, password);
@@ -70,11 +70,6 @@ namespace MyDentalCare.WebAPI.Security
                 {
                     claims.Add(new Claim(ClaimTypes.Role, role.Uloga.Naziv));
                 }
-            }
-
-            foreach (var role in user.KorisnikUloge)
-            {
-                claims.Add(new Claim(ClaimTypes.Role, role.Uloga.Naziv));
             }
 
             var identity = new ClaimsIdentity(claims, Scheme.Name);

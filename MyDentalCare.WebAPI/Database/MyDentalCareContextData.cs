@@ -24,6 +24,7 @@ namespace MyDentalCare.WebAPI.Database
 				DatumRodjenja = new DateTime(1998, 3, 28),
 				Email = "lejla.vejzovic@edufit.ba",
 				BrojTelefona = "38762598895",
+				KorisnickoIme = "lejlav",
 				PasswordHash = "rVJJ78RFz9/58/wfAx5L7lka+0w=",
 				PasswordSalt = "2qm2bCZGHu5ani8g10pmQA=="
 			});

@@ -16,10 +16,16 @@ namespace MyDentalCare.WebAPI.Mappers
 
 			CreateMap<Database.Pacijent, Model.Pacijent>();
 			CreateMap<Database.Pacijent, PacijentUpsertRequest>().ReverseMap();
+			
+			CreateMap<Database.Korisnik, Model.KorisnikLogin>();
+			CreateMap<Database.Pacijent, Model.KorisnikLogin>();
 
 			CreateMap<Database.Drzava, Model.Drzava>();
 			CreateMap<Database.Uloga, Model.Uloga>();
-
+			CreateMap<Database.KorisnikUloga, Model.KorisnikUloge>().ReverseMap();
+			CreateMap<List<Database.KorisnikUloga>, List<Model.KorisnikUloge>>().ReverseMap();
+			CreateMap<ICollection<Database.KorisnikUloga>, List<Model.KorisnikUloge>>().ReverseMap();
+			CreateMap<List<Model.KorisnikUloge>, ICollection<Database.KorisnikUloga>>().ReverseMap();
 			CreateMap<Database.Grad, Model.Grad>();
 			CreateMap<GradUpsertRequest, Database.Grad>();
 

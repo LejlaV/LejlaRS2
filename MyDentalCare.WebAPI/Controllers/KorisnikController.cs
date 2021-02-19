@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MyDentalCare.WebAPI.Controllers
 {
+	[Authorize]
 	[Route("api/[controller]")]
 	[ApiController]
 	public class KorisnikController : ControllerBase
@@ -30,11 +31,14 @@ namespace MyDentalCare.WebAPI.Controllers
 		{
 			return _service.GetById(Id);
 		}
+		[Authorize(Roles = "administrator")]
 		[HttpPost]
 		public Model.Korisnik Insert(KorisnikInsertRequest request)
 		{
 			return _service.Insert(request);
 		}
+
+		[Authorize(Roles = "administrator")]
 		[HttpPut("{id}")]
 		public Model.Korisnik Update(int id, KorisnikInsertRequest request)
 		{

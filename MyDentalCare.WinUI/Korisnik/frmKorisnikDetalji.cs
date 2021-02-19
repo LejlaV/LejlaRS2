@@ -132,11 +132,11 @@ namespace MyDentalCare.WinUI.Korisnik
 				e.Cancel = true;
 				errorProvider.SetError(txtKorisnickoIme, Properties.Resources.Validation_RequiredField);
 			}
-			else if (!Regex.IsMatch(txtKorisnickoIme.Text, @"[^A-Za-z0-9_.]"))
-			{
-				errorProvider.SetError(txtKorisnickoIme, "Nepravilan unos!");
-				e.Cancel = true;
-			}
+			//else if (!Regex.IsMatch(txtKorisnickoIme.Text, @"[^A-Za-z0-9_.]"))
+			//{
+			//	errorProvider.SetError(txtKorisnickoIme, "Nepravilan unos!");
+			//	e.Cancel = true;
+			//}
 			else
 			{
 				errorProvider.SetError(txtKorisnickoIme, null);

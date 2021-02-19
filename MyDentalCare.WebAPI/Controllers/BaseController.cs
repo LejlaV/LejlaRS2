@@ -12,7 +12,9 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MyDentalCare.WebAPI.Controllers
 {
-	[Route("api/[controller]")]
+
+    [Authorize(AuthenticationSchemes = "BasicAuthentication")]
+    [Route("api/[controller]")]
 	[ApiController]
     public class BaseController<T, TSearch> : ControllerBase
     {

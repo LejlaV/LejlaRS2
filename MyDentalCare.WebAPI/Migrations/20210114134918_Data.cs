@@ -107,7 +107,7 @@ namespace MyDentalCare.WebAPI.Migrations
             migrationBuilder.InsertData(
                 table: "Korisnik",
                 columns: new[] { "KorisnikId", "BrojTelefona", "DatumRodjenja", "Email", "Ime", "KorisnickoIme", "PasswordHash", "PasswordSalt", "Prezime" },
-                values: new object[] { 2002, "38762598895", new DateTime(1998, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "lejla.vejzovic@edufit.ba", "Lejla", null, "rVJJ78RFz9/58/wfAx5L7lka+0w=", "2qm2bCZGHu5ani8g10pmQA==", "Vejzovic" });
+                values: new object[] { 2002, "38762598895", new DateTime(1998, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "lejla.vejzovic@edufit.ba", "Lejla", "lejlav", "rVJJ78RFz9/58/wfAx5L7lka+0w=", "2qm2bCZGHu5ani8g10pmQA==", "Vejzovic" });
 
             migrationBuilder.InsertData(
                 table: "Lijek",

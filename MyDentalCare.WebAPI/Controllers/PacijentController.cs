@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 using MyDentalCare.Model.Requests;
 using AutoMapper;
 using MyDentalCare.Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyDentalCare.WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PacijentController : ControllerBase

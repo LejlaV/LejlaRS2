@@ -22,20 +22,25 @@ using Microsoft.AspNetCore.Authentication;
 using MyDentalCare.WebAPI.Security;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using Swashbuckle.Swagger;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace MyDentalCare.WebAPI
 {
 	//public class BasicAuthDocumentFilter : IDocumentFilter
 	//{
-	//	public void Apply(SwaggerDocument swaggerDoc, DocumentFilterContext context)
+	//	public void Apply(Swashbuckle.Swagger.SwaggerDocument swaggerDoc, DocumentFilterContext context)
 	//	{
 	//		var securityRequirements = new Dictionary<string, IEnumerable<string>>()
 	//	{
 	//		{ "basic", new string[] { } }  // in swagger you specify empty list unless using OAuth2 scopes
- //         };
+   //       };
 
-	//		swaggerDoc.Security = new[] { securityRequirements };
+	//		swaggerDoc.security = new[] { securityRequirements };
+	//	}
+
+	//	public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
+	//	{
+	//		throw new NotImplementedException();
 	//	}
 	//}
 	public class Startup
@@ -50,18 +55,18 @@ namespace MyDentalCare.WebAPI
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddMvc(x => x.Filters.Add<ErrorFilter>());
-			services.AddControllers();
-			services.AddAutoMapper(typeof(Startup));
+			//services.AddMvc(x => x.Filters.Add<ErrorFilter>());
+			//services.AddControllers();
+			//services.AddAutoMapper(typeof(Startup));
 			services.AddSwaggerGen(c=>
 			{
 				c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" });
 				c.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme
 				{
+					Name = "Authorization",
 					Type = SecuritySchemeType.Http,
 					Scheme = "basic"
 				});
-				// AddSecurityRequirement
 				c.AddSecurityRequirement(new OpenApiSecurityRequirement
 				{
 					{
@@ -74,12 +79,20 @@ namespace MyDentalCare.WebAPI
 				});
 				//c.DocumentFilter<BasicAuthDocumentFilter>();
 			});
+
+			services.AddMvc
+			 (x => x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+			services.AddControllers();
+			
+			services.AddAutoMapper(typeof(Startup));
 			
 			services.AddAuthentication("BasicAuthentication")
 			   .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
 			services.AddScoped<IKorisnikService, KorisnikService>();
 			services.AddScoped<IPacijentService, PacijentService>();
+			services.AddScoped<ILoginService, LoginService>();
 			services.AddScoped<IPreporukaService, PreporukaService>();
 
 			services.AddScoped<IService<Model.Drzava, object>, BaseService<Model.Drzava, object, Drzava>>();
@@ -112,17 +125,6 @@ namespace MyDentalCare.WebAPI
 				app.UseDeveloperExceptionPage();
 			}
 
-			// app.UseHttpsRedirection();
-
-			app.UseRouting();
-
-			app.UseAuthorization();
-
-			app.UseEndpoints(endpoints =>
-			{
-				endpoints.MapControllers();
-			});
-
 			// Enable middleware to serve generated Swagger as a JSON endpoint.
 			app.UseSwagger();
 
@@ -133,7 +135,19 @@ namespace MyDentalCare.WebAPI
 				c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
 			});
 
+			// app.UseHttpsRedirection();
+
+			app.UseRouting();
+
 			app.UseAuthentication();
+
+			app.UseAuthorization();
+
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllers();
+			});
+
 		}
 	}
 }

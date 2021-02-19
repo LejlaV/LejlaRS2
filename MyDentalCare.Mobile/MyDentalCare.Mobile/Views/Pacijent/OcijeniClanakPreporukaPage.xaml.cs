@@ -33,7 +33,7 @@ namespace MyDentalCare.Mobile.Views.Pacijent
 		}
 		private async void Button_Clicked(object sender, EventArgs e)
 		{
-			if (!decimal.TryParse(this.Ocjena.Text, out decimal Ocjena) || Ocjena < 1 || Ocjena > 10)
+			if (!decimal.TryParse(this.Ocjena.Text, out decimal Ocjena) || Ocjena < 1 || Ocjena > 10 || this.Ocjena.Text == null)
 			{
 				await DisplayAlert("Greška", "Ocjena mora biti između 1 i 10.", "OK");
 				return;
