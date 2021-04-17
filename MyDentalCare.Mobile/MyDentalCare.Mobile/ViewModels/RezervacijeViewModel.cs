@@ -25,6 +25,7 @@ namespace MyDentalCare.Mobile.ViewModels
 			UcitajUsluge();
 		}
 		public ICommand PrikazRezervacijaCommand { get; set; }
+		public ICommand PacijentRezervacijeListCommand { get; set; }
 		public ICommand PretragaRezervacijaCommand { get; set; }
 		public Rezervacija Rezervacija { get; set; }
 		public ObservableCollection<Rezervacija> RezervacijaList { get; set; } = new ObservableCollection<Rezervacija>();

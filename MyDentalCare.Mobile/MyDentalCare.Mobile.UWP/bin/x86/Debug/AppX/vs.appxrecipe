@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>E479751D3BA621FFE91A517978348950214B2B3E3E9F01FCDDD9C8344D2C477C</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>94563A9341E95608D383BC3A7DCC190991381EFB034D3F24A15F9639E0A387CA</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>ea368404-b05c-447f-bab6-7dcf9e7ceaa6_1.0.0.0_x86__w3s6gxa36f6yw</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>ea368404-b05c-447f-bab6-7dcf9e7ceaa6_w3s6gxa36f6yw!App</RegisteredUserModeAppID>
     <RegisteredPackageID>ea368404-b05c-447f-bab6-7dcf9e7ceaa6</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-02-15T09:51:34.402</Modified>
+      <Modified>2021-04-17T19:39:40.589</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\MyDentalCare.Mobile.UWP.exe">
       <PackagePath>entrypoint\MyDentalCare.Mobile.UWP.exe</PackagePath>
-      <Modified>2021-02-15T09:51:17.670</Modified>
+      <Modified>2021-04-17T19:39:29.325</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\.nuget\packages\dotnetty.buffers\0.6.0\lib\netstandard1.3\DotNetty.Buffers.dll">
       <PackagePath>DotNetty.Buffers.dll</PackagePath>
@@ -768,11 +768,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile\bin\Debug\netstandard2.0\MyDentalCare.Mobile.dll">
       <PackagePath>MyDentalCare.Mobile.dll</PackagePath>
-      <Modified>2021-02-18T14:15:17.138</Modified>
+      <Modified>2021-04-17T20:23:12.974</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile\bin\Debug\netstandard2.0\MyDentalCare.Model.dll">
       <PackagePath>MyDentalCare.Model.dll</PackagePath>
-      <Modified>2021-02-18T14:14:57.622</Modified>
+      <Modified>2021-04-17T18:46:45.433</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Microsoft\Xamarin\NuGet\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
@@ -781,6 +781,10 @@
     <AppxPackagedFile Include="C:\Microsoft\Xamarin\NuGet\xamarin.forms\4.3.0.908675\lib\uap10.0\Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml">
       <PackagePath>Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml</PackagePath>
       <Modified>2019-10-17T05:16:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\a36ef67f-8482-4575-9cbf-e8cf623d7beb_200x200.png">
+      <PackagePath>a36ef67f-8482-4575-9cbf-e8cf623d7beb_200x200.png</PackagePath>
+      <Modified>2021-03-12T18:38:57.722</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\Assets\a36ef67f-8482-4575-9cbf-e8cf623d7beb_200x200.png">
       <PackagePath>Assets\a36ef67f-8482-4575-9cbf-e8cf623d7beb_200x200.png</PackagePath>
@@ -947,15 +951,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\Microsoft.UI.Xaml\DensityStyles\Compact.xbf">
       <PackagePath>Microsoft.UI.Xaml\DensityStyles\Compact.xbf</PackagePath>
-      <Modified>2021-02-15T09:51:16.424</Modified>
+      <Modified>2021-04-17T19:39:29.008</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-02-15T09:51:16.424</Modified>
+      <Modified>2021-04-17T19:39:29.009</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-02-15T09:51:16.424</Modified>
+      <Modified>2021-04-17T19:39:29.009</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.16299.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -971,11 +975,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-12-01T11:51:12.638</Modified>
+      <Modified>2021-04-17T19:01:44.288</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\Core\MyDentalCare.Mobile.UWP.exe">
       <PackagePath>MyDentalCare.Mobile.UWP.exe</PackagePath>
-      <Modified>2021-02-15T09:51:34.330</Modified>
+      <Modified>2021-04-17T19:39:40.579</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

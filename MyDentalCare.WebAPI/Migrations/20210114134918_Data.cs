@@ -8,20 +8,12 @@ namespace MyDentalCare.WebAPI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Adresa_GradId",
-                table: "Adresa");
-
-            migrationBuilder.DropForeignKey(
                 name: "FK_Clanak_KategorijaId",
                 table: "Clanak");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Clanak_KorisnikId",
                 table: "Clanak");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Grad_DrzavaId",
-                table: "Grad");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_KorisnikUloga_KorisnikId",
@@ -71,10 +63,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 name: "FK_Rezervacija_UslugaId",
                 table: "Rezervacija");
 
-            migrationBuilder.DropForeignKey(
-                name: "FK_StomatoloskaOrdinacija_AdresaId",
-                table: "StomatoloskaOrdinacija");
-
             migrationBuilder.InsertData(
                 table: "Dijagnoza",
                 columns: new[] { "DijagnozaId", "Naziv" },
@@ -85,11 +73,6 @@ namespace MyDentalCare.WebAPI.Migrations
                     { 1009, "snimanje" },
                     { 1010, "izbjeljivanje" }
                 });
-
-            migrationBuilder.InsertData(
-                table: "Drzava",
-                columns: new[] { "DrzavaId", "Naziv" },
-                values: new object[] { 1, "Bosna i Hercegovina" });
 
             migrationBuilder.InsertData(
                 table: "Kategorija",
@@ -164,11 +147,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Grad",
-                columns: new[] { "GradId", "DrzavaId", "Naziv", "PostanskiBroj" },
-                values: new object[] { 1, 1, "Mostar", "88000" });
-
-            migrationBuilder.InsertData(
                 table: "KorisnikUloga",
                 columns: new[] { "KorisnikUlogaId", "DatumIzmjene", "KorisnikId", "UlogaId" },
                 values: new object[] { 1002, new DateTime(2020, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 2002, 1 });
@@ -194,11 +172,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Adresa",
-                columns: new[] { "AdresaId", "GradId", "Naziv" },
-                values: new object[] { 1, 1, "Bulevar 15" });
-
-            migrationBuilder.InsertData(
                 table: "Ocjena",
                 columns: new[] { "OcjenaId", "ClanakId", "ocjena", "PacijentId" },
                 values: new object[,]
@@ -218,20 +191,7 @@ namespace MyDentalCare.WebAPI.Migrations
                     { 1023, new DateTime(2020, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 2002, 1, 1022, "Azra - popravak", "bez opisa", 2018 },
                     { 1030, new DateTime(2020, 4, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), 1009, 2002, 1, 1025, "testPacijent - snimak", "snimak gornje vilice", 2024 }
                 });
-
-            migrationBuilder.InsertData(
-                table: "StomatoloskaOrdinacija",
-                columns: new[] { "StomatoloskaOrdinacijaId", "AdresaId", "BrojTelefona", "Email", "Naziv", "RadnoVrijemeDo", "RadnoVrijemeOd" },
-                values: new object[] { 1, 1, "+3876254999", "mydentalcare@info.com", "My Dental Care", new DateTime(2020, 1, 1, 17, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 1, 8, 0, 0, 0, DateTimeKind.Unspecified) });
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Adresa_GradId",
-                table: "Adresa",
-                column: "GradId",
-                principalTable: "Grad",
-                principalColumn: "GradId",
-                onDelete: ReferentialAction.Restrict);
-
+            
             migrationBuilder.AddForeignKey(
                 name: "FK_Clanak_KategorijaId",
                 table: "Clanak",
@@ -246,14 +206,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 column: "KorisnikId",
                 principalTable: "Korisnik",
                 principalColumn: "KorisnikId",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Grad_DrzavaId",
-                table: "Grad",
-                column: "DrzavaId",
-                principalTable: "Drzava",
-                principalColumn: "DrzavaId",
                 onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
@@ -351,22 +303,10 @@ namespace MyDentalCare.WebAPI.Migrations
                 principalTable: "Usluga",
                 principalColumn: "UslugaId",
                 onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_StomatoloskaOrdinacija_AdresaId",
-                table: "StomatoloskaOrdinacija",
-                column: "AdresaId",
-                principalTable: "Adresa",
-                principalColumn: "AdresaId",
-                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Adresa_GradId",
-                table: "Adresa");
-
             migrationBuilder.DropForeignKey(
                 name: "FK_Clanak_KategorijaId",
                 table: "Clanak");
@@ -374,10 +314,6 @@ namespace MyDentalCare.WebAPI.Migrations
             migrationBuilder.DropForeignKey(
                 name: "FK_Clanak_KorisnikId",
                 table: "Clanak");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Grad_DrzavaId",
-                table: "Grad");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_KorisnikUloga_KorisnikId",
@@ -426,10 +362,6 @@ namespace MyDentalCare.WebAPI.Migrations
             migrationBuilder.DropForeignKey(
                 name: "FK_Rezervacija_UslugaId",
                 table: "Rezervacija");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_StomatoloskaOrdinacija_AdresaId",
-                table: "StomatoloskaOrdinacija");
 
             migrationBuilder.DeleteData(
                 table: "Clanak",
@@ -542,19 +474,9 @@ namespace MyDentalCare.WebAPI.Migrations
                 keyValue: 2028);
 
             migrationBuilder.DeleteData(
-                table: "StomatoloskaOrdinacija",
-                keyColumn: "StomatoloskaOrdinacijaId",
-                keyValue: 1);
-
-            migrationBuilder.DeleteData(
                 table: "Usluga",
                 keyColumn: "UslugaId",
                 keyValue: 1002);
-
-            migrationBuilder.DeleteData(
-                table: "Adresa",
-                keyColumn: "AdresaId",
-                keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "Clanak",
@@ -637,11 +559,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 keyValue: 2008);
 
             migrationBuilder.DeleteData(
-                table: "Grad",
-                keyColumn: "GradId",
-                keyValue: 1);
-
-            migrationBuilder.DeleteData(
                 table: "Kategorija",
                 keyColumn: "KategorijaId",
                 keyValue: 1002);
@@ -681,18 +598,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 keyColumn: "UslugaId",
                 keyValue: 2009);
 
-            migrationBuilder.DeleteData(
-                table: "Drzava",
-                keyColumn: "DrzavaId",
-                keyValue: 1);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Adresa_GradId",
-                table: "Adresa",
-                column: "GradId",
-                principalTable: "Grad",
-                principalColumn: "GradId");
-
             migrationBuilder.AddForeignKey(
                 name: "FK_Clanak_KategorijaId",
                 table: "Clanak",
@@ -706,13 +611,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 column: "KorisnikId",
                 principalTable: "Korisnik",
                 principalColumn: "KorisnikId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Grad_DrzavaId",
-                table: "Grad",
-                column: "DrzavaId",
-                principalTable: "Drzava",
-                principalColumn: "DrzavaId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_KorisnikUloga_KorisnikId",
@@ -797,13 +695,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 column: "UslugaId",
                 principalTable: "Usluga",
                 principalColumn: "UslugaId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_StomatoloskaOrdinacija_AdresaId",
-                table: "StomatoloskaOrdinacija",
-                column: "AdresaId",
-                principalTable: "Adresa",
-                principalColumn: "AdresaId");
         }
     }
 }

@@ -29,6 +29,7 @@ namespace MyDentalCare.WebAPI.Database
         public virtual DbSet<Pacijent> Pacijent { get; set; }
         public virtual DbSet<Pregled> Pregled { get; set; }
         public virtual DbSet<Rezervacija> Rezervacija { get; set; }
+        public virtual DbSet<Rsll24022021> Rsll24022021 { get; set; }
         public virtual DbSet<StomatoloskaOrdinacija> StomatoloskaOrdinacija { get; set; }
         public virtual DbSet<Uloga> Uloga { get; set; }
         public virtual DbSet<Usluga> Usluga { get; set; }
@@ -37,7 +38,7 @@ namespace MyDentalCare.WebAPI.Database
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=localhost;Database=MyDentalCare;Trusted_Connection=True;");
             }
         }
@@ -220,6 +221,23 @@ namespace MyDentalCare.WebAPI.Database
                     .HasForeignKey(d => d.UslugaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rezervacija_UslugaId");
+            });
+
+            modelBuilder.Entity<Rsll24022021>(entity =>
+            {
+                entity.ToTable("RSll24022021");
+
+                entity.Property(e => e.Rsll24022021Id).HasColumnName("RSll24022021Id");
+
+                entity.Property(e => e.DatumKreiranja).HasColumnType("datetime");
+
+                entity.Property(e => e.PotencijalnoMaliciozan).HasColumnName("potencijalnoMaliciozan");
+
+                entity.HasOne(d => d.Korisnik)
+                    .WithMany(p => p.Rsll24022021)
+                    .HasForeignKey(d => d.KorisnikId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_RSll24022021_KorisnikId");
             });
 
             modelBuilder.Entity<StomatoloskaOrdinacija>(entity =>

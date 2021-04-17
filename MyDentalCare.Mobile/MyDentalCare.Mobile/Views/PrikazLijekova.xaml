@@ -26,14 +26,14 @@
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                         <Label Grid.Column="0" Text="{Binding Naziv}" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="12" 
+                                FontSize="20" 
                                 FontAttributes="Bold" 
                                  VerticalOptions="Center"/>
                                     </StackLayout>
 
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                        <Label Text="Uputstvo: " FontSize="12" 
+                                    <Label Text="Uputstvo: " FontSize="12" 
                                         FontAttributes="Bold" ></Label>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                         <Label Text="{Binding Uputstvo}" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="12" 

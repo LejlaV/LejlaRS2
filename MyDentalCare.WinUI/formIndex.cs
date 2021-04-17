@@ -17,8 +17,6 @@ using MyDentalCare.WinUI.Dijagnoza;
 using MyDentalCare.WinUI.Kategorija;
 using MyDentalCare.WinUI.Clanak;
 using MyDentalCare.WinUI.Usluge;
-using MyDentalCare.WinUI.Lokacije;
-using MyDentalCare.WinUI.StomatoloskaOrdinacija;
 using MyDentalCare.WinUI.Izvjestaji;
 
 namespace MyDentalCare.WinUI
@@ -41,7 +39,6 @@ namespace MyDentalCare.WinUI
 			subMenuLijekovi.Visible = false;
 			subMenuDijagnoze.Visible = false;
 			subMenuUsluge.Visible = false;
-			//subMenuLokacije.Visible = false;
 			subMenuIzvjestaji.Visible = false;
 		}
 
@@ -83,10 +80,6 @@ namespace MyDentalCare.WinUI
 			{
 				subMenuUsluge.Visible = false;
 			}
-			//if (subMenuLokacije.Visible == true)
-			//{
-			//	subMenuLokacije.Visible = false;
-			//}
 			if (subMenuIzvjestaji.Visible == true)
 			{
 				subMenuIzvjestaji.Visible = false;
@@ -285,50 +278,6 @@ namespace MyDentalCare.WinUI
 			hideSubMenu();
 		}
 		#endregion
-
-		//#region Lokacije
-		//private void button27_Click(object sender, EventArgs e)
-		//{
-		//	showSubMenu(subMenuLokacije);
-		//}
-
-		//private void button31_Click(object sender, EventArgs e)
-		//{
-		//	openChildForm(new frmAdrese());
-		//	hideSubMenu();
-		//}
-
-		//private void button30_Click(object sender, EventArgs e)
-		//{
-		//	openChildForm(new frmAdresaDetalji());
-		//	hideSubMenu();
-		//}
-
-		//private void button32_Click(object sender, EventArgs e)
-		//{
-		//	openChildForm(new frmGradovi());
-		//	hideSubMenu();
-		//}
-
-		//private void button33_Click(object sender, EventArgs e)
-		//{
-		//	openChildForm(new frmGradDetalji());
-		//	hideSubMenu();
-		//}
-
-		//private void button34_Click(object sender, EventArgs e)
-		//{
-		//	openChildForm(new frmDrzave());
-		//	hideSubMenu();
-		//}
-
-		//private void button35_Click(object sender, EventArgs e)
-		//{
-		//	openChildForm(new frmStomatoloskaOrdinacija());
-		//	hideSubMenu();
-		//}
-
-		//#endregion
 
 		#region Izvjestaji
 		private void button38_Click(object sender, EventArgs e)

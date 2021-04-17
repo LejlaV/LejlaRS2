@@ -21,19 +21,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Drzava",
-                columns: table => new
-                {
-                    DrzavaId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Drzava", x => x.DrzavaId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Kategorija",
                 columns: table => new
                 {
@@ -125,27 +112,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usluga", x => x.UslugaId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Grad",
-                columns: table => new
-                {
-                    GradId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(nullable: false),
-                    PostanskiBroj = table.Column<string>(nullable: false),
-                    DrzavaId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Grad", x => x.GradId);
-                    table.ForeignKey(
-                        name: "FK_Grad_DrzavaId",
-                        column: x => x.DrzavaId,
-                        principalTable: "Drzava",
-                        principalColumn: "DrzavaId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -257,26 +223,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Adresa",
-                columns: table => new
-                {
-                    AdresaId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(nullable: false),
-                    GradId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Adresa", x => x.AdresaId);
-                    table.ForeignKey(
-                        name: "FK_Adresa_GradId",
-                        column: x => x.GradId,
-                        principalTable: "Grad",
-                        principalColumn: "GradId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Ocjena",
                 columns: table => new
                 {
@@ -353,35 +299,6 @@ namespace MyDentalCare.WebAPI.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "StomatoloskaOrdinacija",
-                columns: table => new
-                {
-                    StomatoloskaOrdinacijaId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(nullable: false),
-                    Email = table.Column<string>(nullable: true),
-                    BrojTelefona = table.Column<string>(nullable: true),
-                    RadnoVrijemeOd = table.Column<DateTime>(nullable: true),
-                    RadnoVrijemeDo = table.Column<DateTime>(nullable: true),
-                    AdresaId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StomatoloskaOrdinacija", x => x.StomatoloskaOrdinacijaId);
-                    table.ForeignKey(
-                        name: "FK_StomatoloskaOrdinacija_AdresaId",
-                        column: x => x.AdresaId,
-                        principalTable: "Adresa",
-                        principalColumn: "AdresaId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Adresa_GradId",
-                table: "Adresa",
-                column: "GradId");
-
             migrationBuilder.CreateIndex(
                 name: "IX_Clanak_KategorijaId",
                 table: "Clanak",
@@ -391,11 +308,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 name: "IX_Clanak_KorisnikId",
                 table: "Clanak",
                 column: "KorisnikId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Grad_DrzavaId",
-                table: "Grad",
-                column: "DrzavaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_KorisnikUloga_KorisnikId",
@@ -457,10 +369,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 table: "Rezervacija",
                 column: "UslugaId");
 
-            migrationBuilder.CreateIndex(
-                name: "IX_StomatoloskaOrdinacija_AdresaId",
-                table: "StomatoloskaOrdinacija",
-                column: "AdresaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -473,9 +381,6 @@ namespace MyDentalCare.WebAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "Pregled");
-
-            migrationBuilder.DropTable(
-                name: "StomatoloskaOrdinacija");
 
             migrationBuilder.DropTable(
                 name: "Uloga");
@@ -496,9 +401,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 name: "Rezervacija");
 
             migrationBuilder.DropTable(
-                name: "Adresa");
-
-            migrationBuilder.DropTable(
                 name: "Kategorija");
 
             migrationBuilder.DropTable(
@@ -509,12 +411,6 @@ namespace MyDentalCare.WebAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "Usluga");
-
-            migrationBuilder.DropTable(
-                name: "Grad");
-
-            migrationBuilder.DropTable(
-                name: "Drzava");
         }
     }
 }

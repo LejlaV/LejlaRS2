@@ -44,14 +44,14 @@ namespace MyDentalCare.Mobile.Views.Pacijent
 			bool ocjenaPostoji = false;
 			foreach (var item in listaOcjena)
 			{
-				if(item.PacijentId==pacijent.PacijentId && item.ClanakId==clanakId)
+				if (item.PacijentId == pacijent.PacijentId && item.ClanakId == clanakId) 
 				{
 					ocjenaPostoji = true;
 				}
 			}
 			// ocjena je postavljena  na 0, da bih zabiljezila da je pacijent otvarao (citao) odredjeni clanak
 			// zbog sistema preporuke - da se korisniku ne bi prikazivali clanci koje je prethodno procitao,
-			// bez obzira sto ih mozda nije ocijenio
+			// bez obzira na to sto ih mozda nije ocijenio
 			if (ocjenaPostoji == false) 
 			{
 				await _ocjene.Insert<Ocjena>(new OcjenaUpsertRequest()

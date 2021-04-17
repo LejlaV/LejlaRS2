@@ -127,12 +127,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIService.cs" />
-    <Compile Include="1Clanak\frmClanciii.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="1Clanak\frmClanciii.Designer.cs">
-      <DependentUpon>frmClanciii.cs</DependentUpon>
-    </Compile>
     <Compile Include="Clanak\frmClanakDetalji.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,36 +217,6 @@
     <Compile Include="Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lokacije\frmAdresaDetalji.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lokacije\frmAdresaDetalji.Designer.cs">
-      <DependentUpon>frmAdresaDetalji.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Lokacije\frmAdrese.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lokacije\frmAdrese.Designer.cs">
-      <DependentUpon>frmAdrese.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Lokacije\frmDrzave.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lokacije\frmDrzave.Designer.cs">
-      <DependentUpon>frmDrzave.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Lokacije\frmGradDetalji.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lokacije\frmGradDetalji.Designer.cs">
-      <DependentUpon>frmGradDetalji.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Lokacije\frmGradovi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lokacije\frmGradovi.Designer.cs">
-      <DependentUpon>frmGradovi.cs</DependentUpon>
-    </Compile>
     <Compile Include="MedicinskiKarton\frmMedicinskiKartonDetalji.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,12 +267,6 @@
     <Compile Include="Rezervacija\frmRezervacije.Designer.cs">
       <DependentUpon>frmRezervacije.cs</DependentUpon>
     </Compile>
-    <Compile Include="StomatoloskaOrdinacija\frmStomatoloskaOrdinacija.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StomatoloskaOrdinacija\frmStomatoloskaOrdinacija.Designer.cs">
-      <DependentUpon>frmStomatoloskaOrdinacija.cs</DependentUpon>
-    </Compile>
     <Compile Include="Usluge\frmUslugaDetalji.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,9 +279,6 @@
     <Compile Include="Usluge\frmUsluge.Designer.cs">
       <DependentUpon>frmUsluge.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="1Clanak\frmClanciii.resx">
-      <DependentUpon>frmClanciii.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Clanak\frmClanakDetalji.resx">
       <DependentUpon>frmClanakDetalji.cs</DependentUpon>
     </EmbeddedResource>
@@ -369,21 +324,6 @@
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lokacije\frmAdresaDetalji.resx">
-      <DependentUpon>frmAdresaDetalji.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lokacije\frmAdrese.resx">
-      <DependentUpon>frmAdrese.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lokacije\frmDrzave.resx">
-      <DependentUpon>frmDrzave.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lokacije\frmGradDetalji.resx">
-      <DependentUpon>frmGradDetalji.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lokacije\frmGradovi.resx">
-      <DependentUpon>frmGradovi.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MedicinskiKarton\frmMedicinskiKartonDetalji.resx">
       <DependentUpon>frmMedicinskiKartonDetalji.cs</DependentUpon>
     </EmbeddedResource>
@@ -417,9 +357,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rezervacija\frmRezervacije.resx">
       <DependentUpon>frmRezervacije.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StomatoloskaOrdinacija\frmStomatoloskaOrdinacija.resx">
-      <DependentUpon>frmStomatoloskaOrdinacija.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usluge\frmUslugaDetalji.resx">
       <DependentUpon>frmUslugaDetalji.cs</DependentUpon>

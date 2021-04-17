@@ -147,7 +147,6 @@ C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\bin\Debug\Syncfusion.Shared.WP
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\bin\Debug\Syncfusion.XlsIO.Base.xml
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.csprojAssemblyReference.cache
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.exe.config
-C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Clanak.frmClanci.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Clanak.frmClanakDetalji.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Clanak.frmListaClanaka.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Dijagnoza.frmDijagnozaDetalji.resources
@@ -163,11 +162,6 @@ C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.K
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Lijek.frmLijekDetalji.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Lijek.frmLijekovi.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Login.frmLogin.resources
-C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Lokacije.frmAdresaDetalji.resources
-C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Lokacije.frmAdrese.resources
-C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Lokacije.frmDrzave.resources
-C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Lokacije.frmGradDetalji.resources
-C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Lokacije.frmGradovi.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.MedicinskiKarton.frmMedicinskiKartonDetalji.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.MedicinskiKarton.frmMedicinskiKartoni.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Pacijent.frmPacijentDetalji.resources
@@ -177,7 +171,6 @@ C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.P
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Properties.Resources.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Rezervacija.frmRezervacijaDetalji.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Rezervacija.frmRezervacije.resources
-C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.StomatoloskaOrdinacija.frmStomatoloskaOrdinacija.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Usluge.frmUslugaDetalji.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.Usluge.frmUsluge.resources
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WinUI\obj\Debug\MyDentalCare.WinUI.csproj.GenerateResource.cache

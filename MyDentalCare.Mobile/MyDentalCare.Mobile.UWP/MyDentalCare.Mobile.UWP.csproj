@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Noimage.jpg" />
+    <Content Include="a36ef67f-8482-4575-9cbf-e8cf623d7beb_200x200.png" />
     <Content Include="Assets\a36ef67f-8482-4575-9cbf-e8cf623d7beb_200x200.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />

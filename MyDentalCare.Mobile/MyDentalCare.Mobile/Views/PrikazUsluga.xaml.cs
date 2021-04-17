@@ -41,24 +41,5 @@ namespace MyDentalCare.Mobile.Views
 
 			await Navigation.PushAsync(new UrediUslugu(item));
 		}
-
-		//private async void Button_Clicked_2(object sender, EventArgs e)
-		//{
-		//	var btn = sender as Button;
-		//	var usluga = btn.BindingContext as Usluga;
-
-		//	var listaRezervacija = await _rezervacije.Get<IEnumerable<Rezervacija>>(null);
-		//	foreach (var item in listaRezervacija)
-		//	{
-		//		if(item.UslugaId == usluga.UslugaId)
-		//		{
-		//			await _rezervacije.Delete<Rezervacija>(item.RezervacijaId);
-		//		}
-		//	}
-		//	await _usluga.Delete<Usluga>(usluga.UslugaId);
-		//	await DisplayAlert("OK", "Uspješno ste obrisali uslugu!", "OK");
-		//	await Navigation.PushAsync(new PrikazUsluga());
-
-		//}
 	}
 }

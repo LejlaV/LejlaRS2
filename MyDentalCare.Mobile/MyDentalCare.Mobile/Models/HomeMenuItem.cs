@@ -13,7 +13,6 @@ namespace MyDentalCare.Mobile.Models
 		Usluge,
 		Članci,
 		Preporuke,
-		StomatološkaOrdinacija,
 		Odjava
 	}
 	public class HomeMenuItem

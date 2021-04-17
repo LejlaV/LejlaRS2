@@ -27,8 +27,7 @@ namespace MyDentalCare.Mobile.Views
 				new HomeMenuItem {Id = MenuItemType.Usluge, Title="Naše usluge" },
 				new HomeMenuItem {Id = MenuItemType.Članci, Title="Doc. Blog" },
 				new HomeMenuItem {Id = MenuItemType.Preporuke, Title="Preporuke" },
-				new HomeMenuItem {Id = MenuItemType.StomatološkaOrdinacija, Title="O nama" },
-				new HomeMenuItem {Id = MenuItemType.Odjava, Title="Odjava" },
+				new HomeMenuItem {Id = MenuItemType.Odjava, Title="Odjava" }
 			};
 
 			ListViewMenu.ItemsSource = menuItems;

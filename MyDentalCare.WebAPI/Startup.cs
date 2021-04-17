@@ -22,27 +22,9 @@ using Microsoft.AspNetCore.Authentication;
 using MyDentalCare.WebAPI.Security;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using Swashbuckle.AspNetCore.Swagger;
 
 namespace MyDentalCare.WebAPI
 {
-	//public class BasicAuthDocumentFilter : IDocumentFilter
-	//{
-	//	public void Apply(Swashbuckle.Swagger.SwaggerDocument swaggerDoc, DocumentFilterContext context)
-	//	{
-	//		var securityRequirements = new Dictionary<string, IEnumerable<string>>()
-	//	{
-	//		{ "basic", new string[] { } }  // in swagger you specify empty list unless using OAuth2 scopes
-   //       };
-
-	//		swaggerDoc.security = new[] { securityRequirements };
-	//	}
-
-	//	public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
-	//	{
-	//		throw new NotImplementedException();
-	//	}
-	//}
 	public class Startup
 	{
 		public Startup(IConfiguration configuration)
@@ -55,9 +37,6 @@ namespace MyDentalCare.WebAPI
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			//services.AddMvc(x => x.Filters.Add<ErrorFilter>());
-			//services.AddControllers();
-			//services.AddAutoMapper(typeof(Startup));
 			services.AddSwaggerGen(c=>
 			{
 				c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" });
@@ -77,12 +56,10 @@ namespace MyDentalCare.WebAPI
 						new string[]{ }
 					}
 				});
-				//c.DocumentFilter<BasicAuthDocumentFilter>();
 			});
 
-			services.AddMvc
-			 (x => x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
+			services.AddMvc(x => x.Filters.Add<ErrorFilter>());
+			
 			services.AddControllers();
 			
 			services.AddAutoMapper(typeof(Startup));
@@ -95,13 +72,9 @@ namespace MyDentalCare.WebAPI
 			services.AddScoped<ILoginService, LoginService>();
 			services.AddScoped<IPreporukaService, PreporukaService>();
 
-			services.AddScoped<IService<Model.Drzava, object>, BaseService<Model.Drzava, object, Drzava>>();
 			services.AddScoped<IService<Model.Pacijent, object>, BaseService<Model.Pacijent, object, Pacijent>>();
 			services.AddScoped<IService<Model.Uloga, object>, BaseService<Model.Uloga, object, Uloga>>();
 
-			services.AddScoped<ICRUDService<Model.Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest>, GradService>();
-			services.AddScoped<ICRUDService<Model.Adresa, AdresaSearchRequest, AdresaUpsertRequest, AdresaUpsertRequest>, AdresaService>();
-			services.AddScoped<ICRUDService<Model.StomatoloskaOrdinacija, StomatoloskaOrdinacijaSearchRequest, StomatoloskaOrdinacijaUpsertRequest, StomatoloskaOrdinacijaUpsertRequest>, StomatoloskaOrdinacijaService>();
 			services.AddScoped<ICRUDService<Model.Usluga, UslugaSearchRequest, UslugaUpsertRequest, UslugaUpsertRequest>, UslugaService>();
 			services.AddScoped<ICRUDService<Model.Lijek, LijekSearchRequest, LijekUpsertRequest, LijekUpsertRequest>, LijekService>();
 			services.AddScoped<ICRUDService<Model.Dijagnoza, DijagnozaSearchRequest, DijagnozaUpsertRequest, DijagnozaUpsertRequest>, DijagnozaService>();
@@ -112,7 +85,10 @@ namespace MyDentalCare.WebAPI
 			services.AddScoped<ICRUDService<Model.MedicinskiKarton, MedicinskiKartonSearchRequest, MedicinskiKartonUpsertRequest, MedicinskiKartonUpsertRequest>, MedicinskiKartonService>();
 			services.AddScoped<ICRUDService<Model.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaService>();
 
+			// update database
+			// Scaffold-DbContext "Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force
 			//var connection = @"Server=localhost;Database=MyDentalCare;Trusted_Connection=True;";
+			
 			var connection = Configuration.GetConnectionString("MyDentalCare");
 			services.AddDbContext<MyDentalCareContext>(options => options.UseSqlServer(connection));
 		}

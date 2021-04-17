@@ -69,10 +69,6 @@ namespace MyDentalCare.Mobile.Views
 								break;
 							}
 						}
-						//if (PacijentMedicinskiKarton.MedicinskiKartonId == 0)
-						//{
-						//	await Application.Current.MainPage.DisplayAlert(" ", "Medicinski karton još uvijek nije kreiran!", "OK");
-						//}
 						MenuPages.Add(id, new NavigationPage(new Pacijent.MojMedicinskiKarton(PacijentMedicinskiKarton)));
 						break;
 					case (int)MenuItemType.MojeRezervacije:
@@ -89,9 +85,6 @@ namespace MyDentalCare.Mobile.Views
 						break;
 					case (int)MenuItemType.Preporuke:
 						MenuPages.Add(id, new NavigationPage(new Pacijent.PreporukaPage()));
-						break;
-					case (int)MenuItemType.StomatološkaOrdinacija:
-						MenuPages.Add(id, new NavigationPage(new Pacijent.StomatoloskaOrdinacijaPage()));
 						break;
 					case (int)MenuItemType.Odjava:
 						MenuPages.Add(id, new NavigationPage(new LoginPage()));

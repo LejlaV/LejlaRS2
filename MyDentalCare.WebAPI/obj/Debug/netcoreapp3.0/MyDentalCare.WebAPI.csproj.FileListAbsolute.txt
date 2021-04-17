@@ -196,13 +196,13 @@ C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\bin\Debug\netcoreapp3.0\runti
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\bin\Debug\netcoreapp3.0\MyDentalCare.Model.dll
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\bin\Debug\netcoreapp3.0\MyDentalCare.Model.pdb
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\MyDentalCare.WebAPI.csprojAssemblyReference.cache
-C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\staticwebassets\MyDentalCare.WebAPI.StaticWebAssets.Manifest.cache
-C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\staticwebassets\MyDentalCare.WebAPI.StaticWebAssets.xml
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\MyDentalCare.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\MyDentalCare.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\MyDentalCare.WebAPI.AssemblyInfoInputs.cache
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\MyDentalCare.WebAPI.AssemblyInfo.cs
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\MyDentalCare.WebAPI.RazorTargetAssemblyInfo.cache
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\MyDentalCare.WebAPI.csproj.CopyComplete
+C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\staticwebassets\MyDentalCare.WebAPI.StaticWebAssets.Manifest.cache
+C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\staticwebassets\MyDentalCare.WebAPI.StaticWebAssets.xml
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\MyDentalCare.WebAPI.dll
 C:\Users\User\Desktop\LejlaRS2\MyDentalCare.WebAPI\obj\Debug\netcoreapp3.0\MyDentalCare.WebAPI.pdb

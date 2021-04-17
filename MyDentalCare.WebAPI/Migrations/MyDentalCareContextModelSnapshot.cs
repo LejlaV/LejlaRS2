@@ -19,35 +19,6 @@ namespace MyDentalCare.WebAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MyDentalCare.WebAPI.Database.Adresa", b =>
-                {
-                    b.Property<int>("AdresaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("GradId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Naziv")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("AdresaId");
-
-                    b.HasIndex("GradId");
-
-                    b.ToTable("Adresa");
-
-                    b.HasData(
-                        new
-                        {
-                            AdresaId = 1,
-                            GradId = 1,
-                            Naziv = "Bulevar 15"
-                        });
-                });
-
             modelBuilder.Entity("MyDentalCare.WebAPI.Database.Clanak", b =>
                 {
                     b.Property<int>("ClanakId")
@@ -220,63 +191,6 @@ namespace MyDentalCare.WebAPI.Migrations
                         {
                             DijagnozaId = 1010,
                             Naziv = "izbjeljivanje"
-                        });
-                });
-
-            modelBuilder.Entity("MyDentalCare.WebAPI.Database.Drzava", b =>
-                {
-                    b.Property<int>("DrzavaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Naziv")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DrzavaId");
-
-                    b.ToTable("Drzava");
-
-                    b.HasData(
-                        new
-                        {
-                            DrzavaId = 1,
-                            Naziv = "Bosna i Hercegovina"
-                        });
-                });
-
-            modelBuilder.Entity("MyDentalCare.WebAPI.Database.Grad", b =>
-                {
-                    b.Property<int>("GradId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("DrzavaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Naziv")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PostanskiBroj")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("GradId");
-
-                    b.HasIndex("DrzavaId");
-
-                    b.ToTable("Grad");
-
-                    b.HasData(
-                        new
-                        {
-                            GradId = 1,
-                            DrzavaId = 1,
-                            Naziv = "Mostar",
-                            PostanskiBroj = "88000"
                         });
                 });
 
@@ -764,51 +678,6 @@ namespace MyDentalCare.WebAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MyDentalCare.WebAPI.Database.StomatoloskaOrdinacija", b =>
-                {
-                    b.Property<int>("StomatoloskaOrdinacijaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AdresaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("BrojTelefona")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Naziv")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("RadnoVrijemeDo")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("RadnoVrijemeOd")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("StomatoloskaOrdinacijaId");
-
-                    b.HasIndex("AdresaId");
-
-                    b.ToTable("StomatoloskaOrdinacija");
-
-                    b.HasData(
-                        new
-                        {
-                            StomatoloskaOrdinacijaId = 1,
-                            AdresaId = 1,
-                            BrojTelefona = "+3876254999",
-                            Email = "mydentalcare@info.com",
-                            Naziv = "My Dental Care",
-                            RadnoVrijemeDo = new DateTime(2020, 1, 1, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            RadnoVrijemeOd = new DateTime(2020, 1, 1, 8, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
-                });
-
             modelBuilder.Entity("MyDentalCare.WebAPI.Database.Uloga", b =>
                 {
                     b.Property<int>("UlogaId")
@@ -882,16 +751,7 @@ namespace MyDentalCare.WebAPI.Migrations
                             Naziv = "RTG Snimak"
                         });
                 });
-
-            modelBuilder.Entity("MyDentalCare.WebAPI.Database.Adresa", b =>
-                {
-                    b.HasOne("MyDentalCare.WebAPI.Database.Grad", "Grad")
-                        .WithMany("Adresa")
-                        .HasForeignKey("GradId")
-                        .HasConstraintName("FK_Adresa_GradId")
-                        .IsRequired();
-                });
-
+            
             modelBuilder.Entity("MyDentalCare.WebAPI.Database.Clanak", b =>
                 {
                     b.HasOne("MyDentalCare.WebAPI.Database.Kategorija", "Kategorija")
@@ -904,15 +764,6 @@ namespace MyDentalCare.WebAPI.Migrations
                         .WithMany("Clanak")
                         .HasForeignKey("KorisnikId")
                         .HasConstraintName("FK_Clanak_KorisnikId")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MyDentalCare.WebAPI.Database.Grad", b =>
-                {
-                    b.HasOne("MyDentalCare.WebAPI.Database.Drzava", "Drzava")
-                        .WithMany("Grad")
-                        .HasForeignKey("DrzavaId")
-                        .HasConstraintName("FK_Grad_DrzavaId")
                         .IsRequired();
                 });
 
@@ -1000,15 +851,6 @@ namespace MyDentalCare.WebAPI.Migrations
                         .WithMany("Rezervacija")
                         .HasForeignKey("UslugaId")
                         .HasConstraintName("FK_Rezervacija_UslugaId")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MyDentalCare.WebAPI.Database.StomatoloskaOrdinacija", b =>
-                {
-                    b.HasOne("MyDentalCare.WebAPI.Database.Adresa", "Adresa")
-                        .WithMany("StomatoloskaOrdinacija")
-                        .HasForeignKey("AdresaId")
-                        .HasConstraintName("FK_StomatoloskaOrdinacija_AdresaId")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

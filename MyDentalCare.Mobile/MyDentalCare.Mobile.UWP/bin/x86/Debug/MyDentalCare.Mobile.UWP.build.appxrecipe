@@ -586,6 +586,9 @@
     <AppxPackagedFile Include="C:\Microsoft\Xamarin\NuGet\xamarin.forms\4.3.0.908675\lib\uap10.0\Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml">
       <PackagePath>Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\a36ef67f-8482-4575-9cbf-e8cf623d7beb_200x200.png">
+      <PackagePath>a36ef67f-8482-4575-9cbf-e8cf623d7beb_200x200.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\Assets\a36ef67f-8482-4575-9cbf-e8cf623d7beb_200x200.png">
       <PackagePath>Assets\a36ef67f-8482-4575-9cbf-e8cf623d7beb_200x200.png</PackagePath>
     </AppxPackagedFile>

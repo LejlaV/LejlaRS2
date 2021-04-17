@@ -15,11 +15,8 @@ namespace MyDentalCare.WebAPI.Models
         {
         }
 
-        public virtual DbSet<Adresa> Adresa { get; set; }
         public virtual DbSet<Clanak> Clanak { get; set; }
         public virtual DbSet<Dijagnoza> Dijagnoza { get; set; }
-        public virtual DbSet<Drzava> Drzava { get; set; }
-        public virtual DbSet<Grad> Grad { get; set; }
         public virtual DbSet<Kategorija> Kategorija { get; set; }
         public virtual DbSet<Korisnik> Korisnik { get; set; }
         public virtual DbSet<KorisnikUloga> KorisnikUloga { get; set; }
@@ -29,7 +26,6 @@ namespace MyDentalCare.WebAPI.Models
         public virtual DbSet<Pacijent> Pacijent { get; set; }
         public virtual DbSet<Pregled> Pregled { get; set; }
         public virtual DbSet<Rezervacija> Rezervacija { get; set; }
-        public virtual DbSet<StomatoloskaOrdinacija> StomatoloskaOrdinacija { get; set; }
         public virtual DbSet<Uloga> Uloga { get; set; }
         public virtual DbSet<Usluga> Usluga { get; set; }
 
@@ -44,17 +40,6 @@ namespace MyDentalCare.WebAPI.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Adresa>(entity =>
-            {
-                entity.Property(e => e.Naziv).IsRequired();
-
-                entity.HasOne(d => d.Grad)
-                    .WithMany(p => p.Adresa)
-                    .HasForeignKey(d => d.GradId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Adresa_GradId");
-            });
-
             modelBuilder.Entity<Clanak>(entity =>
             {
                 entity.Property(e => e.Naslov).IsRequired();
@@ -77,24 +62,6 @@ namespace MyDentalCare.WebAPI.Models
             modelBuilder.Entity<Dijagnoza>(entity =>
             {
                 entity.Property(e => e.Naziv).IsRequired();
-            });
-
-            modelBuilder.Entity<Drzava>(entity =>
-            {
-                entity.Property(e => e.Naziv).IsRequired();
-            });
-
-            modelBuilder.Entity<Grad>(entity =>
-            {
-                entity.Property(e => e.Naziv).IsRequired();
-
-                entity.Property(e => e.PostanskiBroj).IsRequired();
-
-                entity.HasOne(d => d.Drzava)
-                    .WithMany(p => p.Grad)
-                    .HasForeignKey(d => d.DrzavaId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Grad_DrzavaId");
             });
 
             modelBuilder.Entity<Kategorija>(entity =>
@@ -220,17 +187,6 @@ namespace MyDentalCare.WebAPI.Models
                     .HasForeignKey(d => d.UslugaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rezervacija_UslugaId");
-            });
-
-            modelBuilder.Entity<StomatoloskaOrdinacija>(entity =>
-            {
-                entity.Property(e => e.Naziv).IsRequired();
-
-                entity.HasOne(d => d.Adresa)
-                    .WithMany(p => p.StomatoloskaOrdinacija)
-                    .HasForeignKey(d => d.AdresaId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_StomatoloskaOrdinacija_AdresaId");
             });
 
             modelBuilder.Entity<Uloga>(entity =>

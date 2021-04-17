@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using MyDentalCare.Model;
+using MyDentalCare.Model.Requests;
 using System.Security.Cryptography;
 
 namespace MyDentalCare.Mobile.ViewModels
@@ -42,10 +43,12 @@ namespace MyDentalCare.Mobile.ViewModels
 			APIService.Username = KorisnickoIme;
 			APIService.Password = Lozinka;
 
+			Model.Korisnik k = new Model.Korisnik();
+			var username = APIService.Username;
+
 			try
 			{
 				await _service.Get<dynamic>(null);
-				//Application.Current.MainPage = new MainPage();
 				if (string.IsNullOrWhiteSpace(this._korisnickoIme)) 
 				{
 					await Application.Current.MainPage.DisplayAlert("Greška", "Morate upisati korisničko ime!", "OK");
