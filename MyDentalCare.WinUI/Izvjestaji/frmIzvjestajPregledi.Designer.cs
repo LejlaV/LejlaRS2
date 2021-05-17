@@ -30,7 +30,7 @@
 		{
 			this.btnExportToPdf = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
-			this.cmbMjesec = new System.Windows.Forms.ComboBox();
+			this.cmbGodina = new System.Windows.Forms.ComboBox();
 			this.dgvIzvjestajPregledi = new System.Windows.Forms.DataGridView();
 			this.brojObavljenihPregleda = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.brojDijagnoza = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,18 +56,18 @@
 			this.label1.AutoSize = true;
 			this.label1.Location = new System.Drawing.Point(315, 128);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(83, 13);
+			this.label1.Size = new System.Drawing.Size(82, 13);
 			this.label1.TabIndex = 6;
-			this.label1.Text = "Odaberi mjesec:";
+			this.label1.Text = "Odaberi godinu:";
 			// 
-			// cmbMjesec
+			// cmbGodina
 			// 
-			this.cmbMjesec.FormattingEnabled = true;
-			this.cmbMjesec.Location = new System.Drawing.Point(487, 128);
-			this.cmbMjesec.Name = "cmbMjesec";
-			this.cmbMjesec.Size = new System.Drawing.Size(227, 21);
-			this.cmbMjesec.TabIndex = 5;
-			this.cmbMjesec.SelectedIndexChanged += new System.EventHandler(this.cmbMjesec_SelectedIndexChanged);
+			this.cmbGodina.FormattingEnabled = true;
+			this.cmbGodina.Location = new System.Drawing.Point(487, 128);
+			this.cmbGodina.Name = "cmbGodina";
+			this.cmbGodina.Size = new System.Drawing.Size(227, 21);
+			this.cmbGodina.TabIndex = 5;
+			this.cmbGodina.SelectedIndexChanged += new System.EventHandler(this.cmbMjesec_SelectedIndexChanged);
 			// 
 			// dgvIzvjestajPregledi
 			// 
@@ -143,7 +143,7 @@
 			this.Controls.Add(this.dgvIzvjestajPregledi);
 			this.Controls.Add(this.btnExportToPdf);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.cmbMjesec);
+			this.Controls.Add(this.cmbGodina);
 			this.Name = "frmIzvjestajPregledi";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "frmIzvjestajPregledi";
@@ -158,7 +158,7 @@
 
 		private System.Windows.Forms.Button btnExportToPdf;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.ComboBox cmbMjesec;
+		private System.Windows.Forms.ComboBox cmbGodina;
 		private System.Windows.Forms.DataGridView dgvIzvjestajPregledi;
 		private System.Windows.Forms.DataGridViewTextBoxColumn brojObavljenihPregleda;
 		private System.Windows.Forms.DataGridViewTextBoxColumn brojDijagnoza;

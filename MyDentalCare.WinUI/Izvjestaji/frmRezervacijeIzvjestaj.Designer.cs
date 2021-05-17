@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.cmbMjesec = new System.Windows.Forms.ComboBox();
+			this.cmbGodina = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.btnExportToPdf = new System.Windows.Forms.Button();
 			this.dgvIzvjestajRezervacije = new System.Windows.Forms.DataGridView();
@@ -39,23 +39,24 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvIzvjestajRezervacije)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// cmbMjesec
+			// cmbGodina
 			// 
-			this.cmbMjesec.FormattingEnabled = true;
-			this.cmbMjesec.Location = new System.Drawing.Point(457, 157);
-			this.cmbMjesec.Name = "cmbMjesec";
-			this.cmbMjesec.Size = new System.Drawing.Size(258, 21);
-			this.cmbMjesec.TabIndex = 0;
-			this.cmbMjesec.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+			this.cmbGodina.FormattingEnabled = true;
+			this.cmbGodina.Location = new System.Drawing.Point(457, 157);
+			this.cmbGodina.Name = "cmbGodina";
+			this.cmbGodina.Size = new System.Drawing.Size(258, 21);
+			this.cmbGodina.TabIndex = 0;
+			this.cmbGodina.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Location = new System.Drawing.Point(310, 157);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(83, 13);
+			this.label1.Size = new System.Drawing.Size(82, 13);
 			this.label1.TabIndex = 1;
-			this.label1.Text = "Odaberi mjesec:";
+			this.label1.Text = "Odaberi godinu:";
+			this.label1.Click += new System.EventHandler(this.label1_Click);
 			// 
 			// btnExportToPdf
 			// 
@@ -123,7 +124,7 @@
 			this.Controls.Add(this.dgvIzvjestajRezervacije);
 			this.Controls.Add(this.btnExportToPdf);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.cmbMjesec);
+			this.Controls.Add(this.cmbGodina);
 			this.Name = "frmRezervacijeIzvjestaj";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "frmRezervacijeIzvjestaj";
@@ -136,7 +137,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.ComboBox cmbMjesec;
+		private System.Windows.Forms.ComboBox cmbGodina;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btnExportToPdf;
 		private System.Windows.Forms.DataGridView dgvIzvjestajRezervacije;

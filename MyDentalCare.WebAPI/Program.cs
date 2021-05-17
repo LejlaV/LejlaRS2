@@ -15,14 +15,14 @@ namespace MyDentalCare.WebAPI
 	{
 		public static void Main(string[] args)
 		{
-			//CreateHostBuilder(args).Build().Run();
-			var host = CreateHostBuilder(args).Build();
-			using (var scope = host.Services.CreateScope())
-			{
-				var service = scope.ServiceProvider.GetRequiredService<MyDentalCareContext>();
-				Data.Seed(service);
-			}
-			host.Run();
+			CreateHostBuilder(args).Build().Run();
+			//var host = CreateHostBuilder(args).Build();
+			//using (var scope = host.Services.CreateScope())
+			//{
+			//	var service = scope.ServiceProvider.GetRequiredService<MyDentalCareContext>();
+			//	Data.Seed(service);
+			//}
+			//host.Run();
 		}
 		public static IHostBuilder CreateHostBuilder(string[] args) =>
 			Host.CreateDefaultBuilder(args)

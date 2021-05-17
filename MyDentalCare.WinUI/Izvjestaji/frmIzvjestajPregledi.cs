@@ -23,15 +23,16 @@ namespace MyDentalCare.WinUI.Izvjestaji
 		{
 			InitializeComponent();
 		}
-		private void LoadMjesec()
+		private void LoadTime()
 		{
-			for (int i = 1; i <= 12; i++)
+			int time = DateTime.Now.Year;
+			for (int i = 2015; i <= time; i++)
 			{
-				cmbMjesec.Items.Add(i);
+				cmbGodina.Items.Add(i);
 			}
-			cmbMjesec.Text = "--- Odaberite mjesec ---";
+			cmbGodina.Text = "--- Odaberite godinu ---";
 		}
-		private async Task LoadIzvjestaj(int Mjesec)
+		private async Task LoadIzvjestaj(int godina)
 		{
 			List<IzvjestajPregledi> izvjestaj = new List<IzvjestajPregledi>();
 
@@ -42,7 +43,7 @@ namespace MyDentalCare.WinUI.Izvjestaji
 
 			foreach (var item in listaPregleda)
 			{
-				if (item.DatumVrijeme.Month == Mjesec)
+				if (item.DatumVrijeme.Year == godina)
 				{
 					brojPregleda++;
 
@@ -68,7 +69,7 @@ namespace MyDentalCare.WinUI.Izvjestaji
 
 				foreach (var p in preglediDijagnoze)
 				{
-					if (d.DijagnozaId == p.DijagnozaId && p.DatumVrijeme.Month == Mjesec)
+					if (d.DijagnozaId == p.DijagnozaId && p.DatumVrijeme.Year == godina)
 					{
 						var brojacpreglediDijagnoze = preglediDijagnoze.Count();
 						if (brojacpreglediDijagnoze >= brojac)
@@ -92,7 +93,7 @@ namespace MyDentalCare.WinUI.Izvjestaji
 
 				foreach (var p in preglediLijekovi)
 				{
-					if (l.LijekId == p.LijekId && p.DatumVrijeme.Month == Mjesec) 
+					if (l.LijekId == p.LijekId && p.DatumVrijeme.Year == godina) 
 					{
 						var brojacpreglediLijekovi = preglediLijekovi.Count();
 						if (brojacpreglediLijekovi >= brojacL)
@@ -115,12 +116,12 @@ namespace MyDentalCare.WinUI.Izvjestaji
 		}
 		private async void frmIzvjestajPregledi_Load(object sender, EventArgs e)
 		{
-			LoadMjesec();	
+			LoadTime();	
 		}
 
 		private async void cmbMjesec_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			var idObj = cmbMjesec.SelectedItem;
+			var idObj = cmbGodina.SelectedItem;
 			if (int.TryParse(idObj.ToString(), out int id))
 			{
 				await LoadIzvjestaj(id);

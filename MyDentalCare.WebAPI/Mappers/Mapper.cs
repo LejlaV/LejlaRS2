@@ -28,9 +28,6 @@ namespace MyDentalCare.WebAPI.Mappers
 			CreateMap<ICollection<Database.KorisnikUloga>, List<Model.KorisnikUloge>>().ReverseMap();
 			CreateMap<List<Model.KorisnikUloge>, ICollection<Database.KorisnikUloga>>().ReverseMap();
 
-			CreateMap<Database.StomatoloskaOrdinacija, Model.StomatoloskaOrdinacija>();
-			CreateMap<StomatoloskaOrdinacijaUpsertRequest, Database.StomatoloskaOrdinacija>();
-
 			CreateMap<Database.Usluga, Model.Usluga>();
 			CreateMap<UslugaUpsertRequest, Database.Usluga>();
 

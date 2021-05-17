@@ -28,15 +28,16 @@ namespace MyDentalCare.WinUI.Izvjestaji
 		{
 			InitializeComponent();
 		}
-		private void LoadMjesec()
+		private void LoadTime()
 		{
-			for (int i = 1; i <= 12; i++)
+			int time = DateTime.Now.Year;
+			for (int i = 2015; i <= time; i++)
 			{
-				cmbMjesec.Items.Add(i);
+				cmbGodina.Items.Add(i);
 			}
-			cmbMjesec.Text = "--- Odaberite mjesec ---";
+			cmbGodina.Text = "--- Odaberite godinu ---";
 		}
-		private async Task LoadIzvjestaji(int Mjesec)
+		private async Task LoadIzvjestaji(int godina)
 		{
 			List<IzvjestajRezervacije> izvjestaj = new List<IzvjestajRezervacije>();
 
@@ -49,7 +50,7 @@ namespace MyDentalCare.WinUI.Izvjestaji
 			{
 				decimal? zarada = 0;
 
-				if (item.DatumVrijeme.Month == Mjesec)
+				if (item.DatumVrijeme.Year == godina)
 				{
 					brojRezervacija++;
 
@@ -75,7 +76,7 @@ namespace MyDentalCare.WinUI.Izvjestaji
 				var rezervacijeUsluge = await _rezervacije.Get<List<Model.Rezervacija>>(null);
 				foreach (var r in rezervacijeUsluge)
 				{
-					if (r.UslugaId == u.UslugaId && r.DatumVrijeme.Month == Mjesec)
+					if (r.UslugaId == u.UslugaId && r.DatumVrijeme.Year == godina)
 					{
 						var brojacRezervacijeUsluge = rezervacijeUsluge.Count();
 						if (brojacRezervacijeUsluge > brojacUsluga)
@@ -144,12 +145,12 @@ namespace MyDentalCare.WinUI.Izvjestaji
 
 			private void frmRezervacijeIzvjestaj_Load(object sender, EventArgs e)
 		{
-			LoadMjesec();
+			LoadTime();
 
 		}
 		private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			var idObj = cmbMjesec.SelectedItem;
+			var idObj = cmbGodina.SelectedItem;
 			if (int.TryParse(idObj.ToString(), out int id))
 			{
 				await LoadIzvjestaji(id);
@@ -161,5 +162,9 @@ namespace MyDentalCare.WinUI.Izvjestaji
 			exportGridToPdf(dgvIzvjestajRezervacije, "izvjestajRezervacije");
 		}
 
+		private void label1_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

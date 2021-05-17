@@ -51,6 +51,7 @@
 			this.pictureBox.Location = new System.Drawing.Point(748, 137);
 			this.pictureBox.Name = "pictureBox";
 			this.pictureBox.Size = new System.Drawing.Size(155, 181);
+			this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
 			this.pictureBox.TabIndex = 26;
 			this.pictureBox.TabStop = false;
 			// 

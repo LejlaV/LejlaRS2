@@ -35,34 +35,7 @@ namespace MyDentalCare.WebAPI.Database
 				KorisnikUlogaId = 1002,
 				DatumIzmjene = new DateTime(2020, 12, 3)
 			});
-			modelBuilder.Entity<Drzava>().HasData(new WebAPI.Database.Drzava()
-			{
-				DrzavaId = 1,
-				Naziv = "Bosna i Hercegovina"
-			});
-			modelBuilder.Entity<Grad>().HasData(new WebAPI.Database.Grad()
-			{
-				GradId = 1,
-				Naziv = "Mostar",
-				PostanskiBroj = "88000",
-				DrzavaId = 1
-			});
-			modelBuilder.Entity<Adresa>().HasData(new WebAPI.Database.Adresa()
-			{
-				AdresaId = 1,
-				Naziv = "Bulevar 15",
-				GradId = 1,
-			});
-			modelBuilder.Entity<StomatoloskaOrdinacija>().HasData(new WebAPI.Database.StomatoloskaOrdinacija()
-			{
-				StomatoloskaOrdinacijaId = 1,
-				Naziv = "My Dental Care",
-				Email = "mydentalcare@info.com",
-				BrojTelefona = "+3876254999",
-				RadnoVrijemeOd = new DateTime(2020, 1, 1, 08, 00, 00),
-				RadnoVrijemeDo = new DateTime(2020, 1, 1, 17, 00, 00),
-				AdresaId = 1,
-			});
+			
 			modelBuilder.Entity<Usluga>().HasData(new WebAPI.Database.Usluga()
 			{
 				UslugaId = 2,

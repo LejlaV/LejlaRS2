@@ -87,9 +87,10 @@ namespace MyDentalCare.WebAPI
 
 			// update database
 			// Scaffold-DbContext "Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force
-			//var connection = @"Server=localhost;Database=MyDentalCare;Trusted_Connection=True;";
 			
-			var connection = Configuration.GetConnectionString("MyDentalCare");
+			var connection = @"Server=localhost;Database=MyDentalCare;Trusted_Connection=True;";
+			
+			//var connection = Configuration.GetConnectionString("MyDentalCare");
 			services.AddDbContext<MyDentalCareContext>(options => options.UseSqlServer(connection));
 		}
 

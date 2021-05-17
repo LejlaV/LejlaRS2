@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-17T19:39:40.589</Modified>
+      <Modified>2021-05-02T19:14:23.914</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\MyDentalCare.Mobile.UWP.exe">
       <PackagePath>entrypoint\MyDentalCare.Mobile.UWP.exe</PackagePath>
-      <Modified>2021-04-17T19:39:29.325</Modified>
+      <Modified>2021-05-02T19:14:11.243</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\.nuget\packages\dotnetty.buffers\0.6.0\lib\netstandard1.3\DotNetty.Buffers.dll">
       <PackagePath>DotNetty.Buffers.dll</PackagePath>
@@ -951,15 +951,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\Microsoft.UI.Xaml\DensityStyles\Compact.xbf">
       <PackagePath>Microsoft.UI.Xaml\DensityStyles\Compact.xbf</PackagePath>
-      <Modified>2021-04-17T19:39:29.008</Modified>
+      <Modified>2021-05-02T19:14:10.046</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-04-17T19:39:29.009</Modified>
+      <Modified>2021-05-02T19:14:10.046</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-04-17T19:39:29.009</Modified>
+      <Modified>2021-05-02T19:14:10.046</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.16299.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -979,7 +979,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\User\Desktop\LejlaRS2\MyDentalCare.Mobile\MyDentalCare.Mobile.UWP\bin\x86\Debug\Core\MyDentalCare.Mobile.UWP.exe">
       <PackagePath>MyDentalCare.Mobile.UWP.exe</PackagePath>
-      <Modified>2021-04-17T19:39:40.579</Modified>
+      <Modified>2021-05-02T19:14:23.902</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

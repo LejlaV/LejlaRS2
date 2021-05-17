@@ -10,7 +10,6 @@ namespace MyDentalCare.WebAPI.Database
             Clanak = new HashSet<Clanak>();
             KorisnikUloga = new HashSet<KorisnikUloga>();
             Pregled = new HashSet<Pregled>();
-            Rsll24022021 = new HashSet<Rsll24022021>();
         }
 
         public int KorisnikId { get; set; }
@@ -26,6 +25,5 @@ namespace MyDentalCare.WebAPI.Database
         public virtual ICollection<Clanak> Clanak { get; set; }
         public virtual ICollection<KorisnikUloga> KorisnikUloga { get; set; }
         public virtual ICollection<Pregled> Pregled { get; set; }
-        public virtual ICollection<Rsll24022021> Rsll24022021 { get; set; }
     }
 }
